@@ -1,0 +1,26 @@
+#particle {
+  background-color: #303742;
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:0;
+}
+#overlay {
+  position: relative;
+}
+.btn.btn-link, .navbar-center {
+  color: rgb(255, 255, 255) !important;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.navbar {
+  background: rgba(48, 55, 66, 0.8);
+}
+
+h1.me {
+  vertical-align: middle;
+  color: white;
+}
