@@ -1,5 +1,42 @@
+@font-face {font-family: "Blender Pro"; src: url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.eot"); src: url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.woff") format("woff"), url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.svg#Blender Pro") format("svg"); }
+
+@-webkit-keyframes RadialAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes RadialAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes RadialAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+@keyframes easein {
+  0% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+html {
+  font-family: "Blender Pro";
+  background: rgb(31,43,52);
+  background: radial-gradient(circle, rgba(31,43,52,1) 50%, rgba(20,18,18,1) 100%);
+  background-size: 400% 400%;
+  -webkit-animation: RadialAnimation 40s ease infinite;
+  -moz-animation: RadialAnimation 40s ease infinite;
+  animation: RadialAnimation 40s ease infinite;
+}
+
 #particle {
-  background-color: #303742;
+  animation: easein 1s; 
   position:fixed;
   top:0;
   right:0;
@@ -7,20 +44,30 @@
   left:0;
   z-index:0;
 }
+
 #overlay {
   position: relative;
-}
-.btn.btn-link, .navbar-center {
-  color: rgb(255, 255, 255) !important;
-  padding-right: 15px;
-  padding-left: 15px;
+  animation: easein 1s; 
 }
 
-.navbar {
-  background: rgba(48, 55, 66, 0.8);
-}
-
-h1.me {
-  vertical-align: middle;
+.top {
+  text-shadow: 2px 2px 2px #CE5937;
   color: white;
+}
+
+.me {
+  margin: 0;
+}
+
+.header {
+  font-size: 7vw;
+  display: block;
+  text-align: -webkit-center;
+  margin: 5%;
+}
+
+.subheader {
+  font-size: 3vw;
+  display: block;
+  text-align: -webkit-center;
 }

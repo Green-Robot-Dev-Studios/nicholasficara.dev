@@ -1,7 +1,13 @@
+init_pointer({
+	pointerColor: "#CE5937", // Css color
+	ringSize: 15, // Pixels
+	ringClickSize: 10 // Pixels when clicking
+})
+
 var options = {
   "particles": {
     "number": {
-      "value": 147,
+      "value": 80,
       "density": {
         "enable": true,
         "value_area": 800
@@ -72,7 +78,7 @@ var options = {
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "grab"
+        "mode": "repulse"
       },
       "onclick": {
         "enable": true,
@@ -95,7 +101,7 @@ var options = {
         "speed": 3
       },
       "repulse": {
-        "distance": 200,
+        "distance": 150,
         "duration": 0.4
       },
       "push": {
