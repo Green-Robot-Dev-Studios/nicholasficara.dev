@@ -1,7 +1,5 @@
 html, body { height: 100%; }
 
-@font-face {font-family: "Blender Pro"; src: url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.eot"); src: url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.woff") format("woff"), url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/a082fd3df68a0b54e0d4d794bc38d268.svg#Blender Pro") format("svg"); }
-
 @-webkit-keyframes RadialAnimation {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
@@ -28,7 +26,7 @@ html, body { height: 100%; }
 }
 
 html {
-  font-family: "Blender Pro";
+  font-family: 'Roboto', sans-serif;
   background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
   background-size: 400% 400%;
   -webkit-animation: RadialAnimation 40s ease infinite;
