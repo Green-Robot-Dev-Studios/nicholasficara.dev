@@ -1,0 +1,150 @@
+html, body { height: 100%; }
+
+@-webkit-keyframes RadialAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes RadialAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes RadialAnimation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+@keyframes easein {
+  0% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  background-size: 400% 400%;
+  -webkit-animation: RadialAnimation 40s ease infinite;
+  -moz-animation: RadialAnimation 40s ease infinite;
+  animation: RadialAnimation 40s ease infinite;
+}
+
+#particle {
+  height: 100%;
+  animation: easein 1s; 
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:-1;
+}
+
+#overlay {
+  position: relative;
+  animation: easein 1s; 
+}
+
+
+.content {
+  margin: calc(0.2vw + 0.2vh);
+}
+
+.content h1 {
+  font-size: calc(2vw + 2vh);
+  display: block;
+  color: white;
+  margin: calc(0.2vw + 0.2vh);
+  margin-left: calc(0.3vw + 0.3vh);
+}
+
+.content p, ul {
+  color: lightgray;
+  display: block;
+  font-size: calc(1vw + 1vh);
+  margin: calc(0.3vw + 0.3vh);
+  margin-left: calc(0.5vw + 0.5vh);
+}
+
+.content div:nth-of-type(2n) {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+}
+.content div:nth-of-type(2n-1) {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+}
+
+.content div {
+  margin: calc(0.5vw + 0.5vh);
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 30%;
+  max-width: 30%;
+  padding: 0 10px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 1000px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+.post {
+  display: block;
+  margin: 0 auto;
+  color: white;
+  border: 3px solid #CE5937;
+  border-radius: 15px;
+  background:rgba(54, 56, 59, 0.5);
+  padding: 20px 25px; 
+  margin-bottom: 7%;
+  transition: transform .2s; /* Animation */
+}
+
+.post:hover {
+  transform: scale(1.05);
+}
+
+.post h1 {
+  font-size: calc(2vw + 2vh);
+}
+
+.post p {
+  font-size: calc(1vw + 1vh);
+}
+
+.top {
+  text-shadow: 2px 2px 2px #CE5937;
+  color: white;
+}
+
+.header {
+  font-size: calc(5vw + 5vh);
+  display: block;
+  text-align: -webkit-center;
+  margin: 5%;
+}
+
+.subheader {
+  margin-bottom: 10%;
+  font-size: calc(1.5vw + 1.5vh);
+  display: block;
+  text-align: -webkit-center;
+}
