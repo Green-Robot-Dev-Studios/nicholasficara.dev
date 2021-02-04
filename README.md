@@ -1,2 +1,2 @@
-# nicholasficara.github.io
+# nicholasficara.dev
 Personal Page
