@@ -1,0 +1,17 @@
+#parent {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.chart {
+    width: 40%;
+    margin: 0 auto;
+}
