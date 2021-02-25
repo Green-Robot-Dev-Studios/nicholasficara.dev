@@ -39,10 +39,10 @@ class Ball {
         
         // check the borders
         if (this.y < bounce && this.velocity != 0) {
-            this.velocity = -this.velocity*(1-this.eloss/100); // loose 20% like the other one
+            this.velocity = -this.velocity*Math.sqrt(1-this.eloss/100); // loose 20% like the other one
             this.y = bounce;
         } else if (this.y > height-bounce && this.velocity != 0) {
-            this.velocity = -this.velocity*(1-this.eloss/100);
+            this.velocity = -this.velocity*Math.sqrt(1-this.eloss/100);
             this.y = height-bounce;
         }
         
