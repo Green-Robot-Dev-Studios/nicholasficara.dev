@@ -6,7 +6,7 @@ function graph() {
     chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['Now', '-1s', '-2s', '-3s', '-4s', '-5s'],
+            labels: ['Now', '-1s', '-2s', '-3s', '-4s', '-5s'].reverse(),
             datasets: [{
                 label: 'Velocity over time',
                 data: [0, 0, 0, 0, 0, 0],
@@ -43,7 +43,7 @@ function graph() {
     chart2 = new Chart(ctx2, {
         type: 'line',
         data: {
-            labels: ['Now', '-1s', '-2s', '-3s', '-4s', '-5s'],
+            labels: ['Now', '-1s', '-2s', '-3s', '-4s', '-5s'].reverse(),
             datasets: [{
                 label: 'Position over time',
                 data: [0, 0, 0, 0, 0, 0],
