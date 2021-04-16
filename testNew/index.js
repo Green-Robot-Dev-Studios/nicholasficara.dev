@@ -1,11 +1,13 @@
-new Pageable("#container", {
-  childSelector: "[data-anchor]", // CSS3 selector string for the pages
+import { start } from './world.js';
+
+const pages = new Pageable('#container', {
+  childSelector: '[data-anchor]', // CSS3 selector string for the pages
   anchors: [], // define the page anchors
   pips: true, // display the pips
   animation: 300, // the duration in ms of the scroll animation
   delay: 0, // the delay in ms before the scroll animation starts
   throttle: 50, // the interval in ms that the resize callback is fired
-  orientation: "vertical", // or horizontal
+  orientation: 'vertical', // or horizontal
   swipeThreshold: 50, // swipe / mouse drag distance (px) before firing the page change event
   freeScroll: true, // allow manual scrolling when dragging instead of automatically moving to next page
   navPrevEl: false, // define an element to use to scroll to the previous page (CSS3 selector string or Element reference)
@@ -18,3 +20,14 @@ new Pageable("#container", {
     keydown: true, // enable / disable keyboard navigation
   }
 });
+
+let hasRendered = false;
+pages.on('scroll.end', data => {
+  if(data.index === 1 && !hasRendered) {
+    start();
+    hasRendered = true;
+  }
+});
+
+//TODO testing
+start();
