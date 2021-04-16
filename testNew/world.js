@@ -54,7 +54,7 @@ function addWater() {
 
     water.position.set(0, -30, 0);
     water.rotation.x = -Math.PI / 2;
-    console.log(water.material.uniforms.size)
+    //console.log(water.material.uniforms.size)
     water.material.uniforms.size.value = 10;
     scene.add(water);
 }
@@ -76,7 +76,7 @@ function addTopText() {
         });
         const text = new THREE.Mesh(geometry, material);
         geometry.computeBoundingBox();
-        console.log(geometry.boundingBox);
+        //console.log(geometry.boundingBox);
         geometry.center();
         text.position.set(0, 75, 300);
         text.rotateY(Math.PI);
@@ -112,7 +112,8 @@ function init() {
     overlayElement = document.querySelector("#overlay");
     worldElement = document.querySelector("#world");
 
-    renderer = new THREE.WebGLRenderer({ canvas: canvasElement });
+    renderer = new THREE.WebGLRenderer({ canvas: canvasElement, antialias: 1 });
+    renderer.setPixelRatio(2);
 
     overlay = new CSS3DRenderer();
     overlay.domElement.style.position = "absolute";
@@ -152,9 +153,10 @@ function init() {
     orbit_controls.enableZoom = false;
     orbit_controls.enablePan = false;
     orbit_controls.enableDamping = true;
-    orbit_controls.rotateSpeed = -0.25;
+    orbit_controls.rotateSpeed = -.4;
+    orbit_controls.dampingFactor = .125;
 
-    const light = new THREE.PointLight("#fff", 1, 100);
+    const light = new THREE.PointLight("#fff", 2, 1000, 1);
     light.position.set(0, 50, 100);
     scene.add(light);
 
@@ -163,6 +165,7 @@ function init() {
     addWater();
     addTopText();
 
+    document.querySelector("#bg").play();
     window.addEventListener("resize", onWindowResize);
 }
 
@@ -177,7 +180,7 @@ function animate() {
         device_controls.object = camera;
         orbit_controls.maxPolarAngle = Math.PI / 2;
         orbit_controls.minPolarAngle = Math.PI / 2;
-        console.log("mobile detected");
+        console.log("Mobile Detected");
     }
 
     // update water
