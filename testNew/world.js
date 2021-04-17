@@ -14,10 +14,12 @@ let camera,
     device_controls,
     dummy,
     overlay,
-    sceneCSS, 
-    overlayElement, 
-    worldElement, 
-    canvasElement, 
+    sceneCSS,
+    overlayElement,
+    worldElement,
+    canvasElement,
+    mobileControlsElement,
+    deviceControlsElement,
     water;
 
 let mobile = false;
@@ -25,6 +27,7 @@ let mobile = false;
 export function start() {
     document.querySelector("#home").style.display = "none";
     document.querySelector("#world").removeAttribute("hidden");
+    document.querySelector("#bg").volume = 0.2;
 
     init();
     animate();
@@ -32,6 +35,10 @@ export function start() {
 }
 
 document.getElementById("start").onclick = start;
+document.getElementById("music").onchange = (element) => {
+    if (element.target.checked) document.getElementById("bg").play();
+    if (!element.target.checked) document.getElementById("bg").pause();
+}
 
 function addWater() {
     const waterGeometry = new THREE.PlaneGeometry(10000, 10000);
@@ -95,7 +102,7 @@ function addHelper() {
 }
 
 function addHDRI() {
-    const geometry = new THREE.SphereGeometry(500, 50, 30);
+    const geometry = new THREE.SphereGeometry(2500, 50, 30);
     // invert the geometry on the x-axis so that all of the faces point inward
     geometry.scale(-1, 1, 1);
 
@@ -111,6 +118,8 @@ function init() {
     canvasElement = document.querySelector("#canvas");
     overlayElement = document.querySelector("#overlay");
     worldElement = document.querySelector("#world");
+    mobileControlsElement = document.querySelector("#mobileControls");
+    deviceControlsElement = document.querySelector("#deviceControls");
 
     renderer = new THREE.WebGLRenderer({ canvas: canvasElement, antialias: 1 });
     renderer.setPixelRatio(2);
@@ -133,7 +142,7 @@ function init() {
         75,
         window.innerWidth / window.innerHeight,
         1,
-        1100
+        5000
     );
 
     // scene -> dummy (for device) -> camera (for orbit)
@@ -174,8 +183,16 @@ function animate() {
 
     orbit_controls.update();
     if (mobile) device_controls.update();
-
-    if (!mobile && device_controls.deviceOrientation.alpha) {
+    if (mobile && !deviceControlsElement.checked) {
+        mobile = false;
+        orbit_controls.maxPolarAngle = Math.PI;
+        orbit_controls.minPolarAngle = 0;
+        camera.rotation.set(0, 0, 0);
+    } 
+    if (device_controls.deviceOrientation.alpha) {
+        mobileControlsElement.removeAttribute("hidden");
+    }
+    if (!mobile && deviceControlsElement.checked) {
         mobile = true;
         device_controls.object = camera;
         orbit_controls.maxPolarAngle = Math.PI / 2;

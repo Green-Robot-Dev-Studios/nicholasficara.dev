@@ -24,7 +24,15 @@
       <div id="overlay">
         <button id="button" onclick='console.log("Hello")'>Press me!</button>
       </div>
-      <audio src="./assets/bg.mp3" id="bg">
+      <div id="controls">
+        <div id="mobileControls" hidden>
+          <input class="checkbox" type="checkbox" id="deviceControls" name="deviceControls">
+          <label for="devicecontrols"> Use Device Motion</label><br>
+        </div>
+        <input class="checkbox" type="checkbox" id="music" name="music" checked>
+        <label for="music"> Music</label><br>
+      </div>
+      <audio src="./assets/bg.mp3" id="bg" loop>
         <p>Your browser does not support audio elements.</p>
       </audio>
     </div>

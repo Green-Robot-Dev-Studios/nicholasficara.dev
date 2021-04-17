@@ -30,6 +30,19 @@ body {
   background-color: whitesmoke;
 }
 
+#controls {
+  position: absolute;
+  bottom: 0;
+  background: white;
+  padding: 10px;
+  border-radius: 3px;
+  opacity: 50%;
+}
+
+.checkbox {
+  transform: scale(1.5);
+}
+
 button {
   position: relative;
   background: none;
