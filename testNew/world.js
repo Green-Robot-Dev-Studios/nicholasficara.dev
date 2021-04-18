@@ -140,11 +140,14 @@ function addHDRI() {
     geometry.scale(-1, 1, 1);
 
     const material = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader(manager).load("./assets/4.jpg"),
+        map: new THREE.TextureLoader(manager).load("./assets/hdr.png"),
     });
 
     HDRI = new THREE.Mesh(geometry, material);
     scene.add(HDRI);
+
+    HDRI.rotateY(Math.PI/2);
+    HDRI.rotateZ(Math.PI / 2);
 }
 
 function addHTML() {
@@ -232,7 +235,7 @@ function init() {
 
     addHDRI();
     //addHelper();
-    addWater();
+    //addWater();
     addText();
     addHTML();
 
@@ -264,7 +267,7 @@ function animate() {
     }
 
     // update water
-    water.material.uniforms["time"].value += 1.0 / 60.0;
+    //water.material.uniforms["time"].value += 1.0 / 60.0;
 
     // update sky
     //HDRI.rotation.x += 0.0003;
