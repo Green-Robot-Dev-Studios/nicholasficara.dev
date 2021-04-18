@@ -16,29 +16,55 @@ let camera,
     overlay,
     sceneCSS,
     overlayElement,
+    overlayElementF,
+    overlayElementB,
+    overlayElementL,
+    overlayElementR,
     worldElement,
     canvasElement,
     mobileControlsElement,
     deviceControlsElement,
-    water;
+    water,
+    HDRI, 
+    manager, 
+    mobile = false, 
+    animationDone = false, 
+    loadingDone = false, 
+    readyFired = false;
 
-let mobile = false;
+function ready(signal) {
+    if (signal === 1) animationDone = true;
+    if (signal === 0) loadingDone = true;
+    if (animationDone && loadingDone && !readyFired) {
+        document.querySelector("#home").style.display = "none";
+        worldElement.removeAttribute("hidden");
+        console.log("[II] Starting animation of first frame");
+        animate();
+        console.log("[II] Done animating first frame");
+        onWindowResize();
+        document.querySelector("#cover").classList.add("white");
+        console.log("[II] Fading into 3D scene");
+        readyFired = true;
+    }
+}
 
 export function start() {
-    document.querySelector("#home").style.display = "none";
-    document.querySelector("#world").removeAttribute("hidden");
+    document.querySelector("#home").classList.add("black");
+    document.querySelector("#homeContainer").classList.add("transparent");
+    console.log("[II] Fading to black");
+    document
+        .querySelector("#home")
+        .addEventListener("animationend", ()=>ready(1));
     document.querySelector("#bg").volume = 0.2;
+    document.getElementById("music").onchange = (element) => {
+        if (element.target.checked) document.getElementById("bg").play();
+        if (!element.target.checked) document.getElementById("bg").pause();
+    };
 
     init();
-    animate();
-    onWindowResize();
 }
 
 document.getElementById("start").onclick = start;
-document.getElementById("music").onchange = (element) => {
-    if (element.target.checked) document.getElementById("bg").play();
-    if (!element.target.checked) document.getElementById("bg").pause();
-}
 
 function addWater() {
     const waterGeometry = new THREE.PlaneGeometry(10000, 10000);
@@ -46,7 +72,7 @@ function addWater() {
     water = new Water(waterGeometry, {
         textureWidth: 512,
         textureHeight: 512,
-        waterNormals: new THREE.TextureLoader().load(
+        waterNormals: new THREE.TextureLoader(manager).load(
             "assets/waternormals.jpg",
             function (texture) {
                 texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
@@ -66,28 +92,35 @@ function addWater() {
     scene.add(water);
 }
 
-function addTopText() {
+function text(font, textContent, position, rotation) {
+    const geometry = new THREE.TextGeometry(textContent, {
+        font: font,
+        size: 20,
+        height: 2,
+        curveSegments: 12,
+        bevelEnabled: false,
+    });
+    const material = new THREE.MeshStandardMaterial({
+        color: "#fff",
+        emissive: "#000",
+    });
+    const text = new THREE.Mesh(geometry, material);
+    geometry.computeBoundingBox();
+    //console.log(geometry.boundingBox);
+    geometry.center();
+    text.position.set(position[0], position[1], position[2]);
+    text.rotateY(rotation);
+    scene.add(text);
+}
+
+function addText() {
     const loader = new THREE.FontLoader();
 
     loader.load("assets/helvetiker_regular.typeface.json", function (font) {
-        const geometry = new THREE.TextGeometry("Nicholas Ficara", {
-            font: font,
-            size: 20,
-            height: 2,
-            curveSegments: 12,
-            bevelEnabled: false,
-        });
-        const material = new THREE.MeshStandardMaterial({
-            color: "#fff",
-            emissive: "#000"
-        });
-        const text = new THREE.Mesh(geometry, material);
-        geometry.computeBoundingBox();
-        //console.log(geometry.boundingBox);
-        geometry.center();
-        text.position.set(0, 75, 300);
-        text.rotateY(Math.PI);
-        scene.add(text);
+        text(font, "Nicholas Ficara", [0, 75, 300], Math.PI);
+        text(font, "Contact Me", [0, 75, -300], 0);
+        text(font, "Skills Wall", [300, 75, 0], -Math.PI/2);
+        text(font, "My Projects", [-300, 75, 0], Math.PI / 2);
     });
 }
 
@@ -107,19 +140,51 @@ function addHDRI() {
     geometry.scale(-1, 1, 1);
 
     const material = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader().load("./assets/4.jpg"),
+        map: new THREE.TextureLoader(manager).load("./assets/hdr.jpg"),
     });
 
-    const HDRI = new THREE.Mesh(geometry, material);
+    HDRI = new THREE.Mesh(geometry, material);
     scene.add(HDRI);
+}
+
+function addHTML() {
+    var objectF = new CSS3DObject(overlayElementF);
+    sceneCSS.add(objectF);
+    objectF.position.set(0, 0, 500);
+    objectF.applyMatrix4(new THREE.Matrix4().makeScale(-1, 1, 1));
+    var objectB = new CSS3DObject(overlayElementB);
+    sceneCSS.add(objectB);
+    objectB.position.set(0, 0, -500);
+    var objectL = new CSS3DObject(overlayElementL);
+    sceneCSS.add(objectL);
+    objectL.position.set(500, 0, 0);
+    objectL.rotation.y = -Math.PI / 2;
+    var objectR = new CSS3DObject(overlayElementR);
+    sceneCSS.add(objectR);
+    objectR.position.set(500, 0, 0);
+    objectR.rotation.y = Math.PI / 2;
+    objectR.applyMatrix4(new THREE.Matrix4().makeScale(-1, 1, 1));
 }
 
 function init() {
     canvasElement = document.querySelector("#canvas");
     overlayElement = document.querySelector("#overlay");
+    overlayElementF = document.querySelector("#overlayF");
+    overlayElementB = document.querySelector("#overlayB");
+    overlayElementL = document.querySelector("#overlayL");
+    overlayElementR = document.querySelector("#overlayR");
     worldElement = document.querySelector("#world");
     mobileControlsElement = document.querySelector("#mobileControls");
     deviceControlsElement = document.querySelector("#deviceControls");
+
+    manager = new THREE.LoadingManager();
+    manager.onProgress = function (item, loaded, total) {
+        console.log("[II] Loading: ", (loaded / total) * 100 + "%");
+        if (loaded === total) {
+            ready(0);
+            console.log("[II] Done loading assets");
+        }
+    };
 
     renderer = new THREE.WebGLRenderer({ canvas: canvasElement, antialias: 1 });
     renderer.setPixelRatio(2);
@@ -133,10 +198,6 @@ function init() {
     scene = new THREE.Scene();
     
     sceneCSS = new THREE.Scene();
-    var object = new CSS3DObject(overlayElement);
-    sceneCSS.add(object);
-    object.position.set(0, 0, 500);
-    object.applyMatrix4(new THREE.Matrix4().makeScale(-1, 1, 1));
 
     camera = new THREE.PerspectiveCamera(
         75,
@@ -172,7 +233,8 @@ function init() {
     addHDRI();
     //addHelper();
     addWater();
-    addTopText();
+    addText();
+    addHTML();
 
     document.querySelector("#bg").play();
     window.addEventListener("resize", onWindowResize);
@@ -180,6 +242,7 @@ function init() {
 
 function animate() {
     window.requestAnimationFrame(animate);
+    
 
     orbit_controls.update();
     if (mobile) device_controls.update();
@@ -197,11 +260,14 @@ function animate() {
         device_controls.object = camera;
         orbit_controls.maxPolarAngle = Math.PI / 2;
         orbit_controls.minPolarAngle = Math.PI / 2;
-        console.log("Mobile Detected");
+        console.log("[II] Mobile Detected");
     }
 
     // update water
     water.material.uniforms["time"].value += 1.0 / 60.0;
+
+    // update sky
+    HDRI.rotation.x += 0.0003;
 
     renderer.render(scene, camera);
     overlay.render(sceneCSS, camera);

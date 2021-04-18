@@ -14,15 +14,30 @@
   </head>
   <body>
     <div id="home">
-      <div>
-        <h1>Hi! 👋</h1>
-        <button id="start" class="fill">Enter website</button>
+      <div id="homeContainer">
+        <h1>Hi! 👋 I'm Nick.</h1>
+        <h2>This is a 3D interactive website built with Three.JS ❤️</h2>
+        <h2>You can look around with the mouse/touch or use your device's motion.</h2>
+        <button id="start" class="fill">Begin Adventure</button>
       </div>
     </div>
     <div id="world" hidden>
       <canvas id="canvas"></canvas>
-      <div id="overlay">
-        <button id="button" onclick='console.log("Hello")'>Press me!</button>
+      <div id="cover">
+        <h1>Loading...</h1>
+      </div>
+      <div id="overlay" hidden>
+        <div id="overlayF">
+          <button id="button" onclick='console.log("HelloF")'>In progress...</button>
+        </div>
+        <div id="overlayB">
+          <button id="button" onclick='console.log("HelloB")'>In progress...</button>
+        </div>
+        <div id="overlayL">
+        </div>
+        <div id="overlayR">
+          <button id="button" onclick='console.log("HelloR")'>In progress...</button>
+        </div> 
       </div>
       <div id="controls">
         <div id="mobileControls" hidden>
@@ -38,5 +53,6 @@
     </div>
 
     <script src="world.js" type=module></script>
+    <script src="icons.js" type=module></script>
   </body>
 </html>

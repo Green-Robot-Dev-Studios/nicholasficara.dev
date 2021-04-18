@@ -6,4 +6,5 @@ Personal Page
 - ~~DeviceControls toggle button~~
 - ~~Music controls toggle button~~
 - Content
-- Get new HDRI
+- ~~Get new HDRI~~
+- Loading
