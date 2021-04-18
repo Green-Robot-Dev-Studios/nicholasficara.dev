@@ -1,5 +1,11 @@
+@font-face {
+  font-family: Poppins;
+  src: url("./assets/Poppins-Light.ttf");
+}
+
 body {
   margin: 0;
+  font-family: Poppins;
 }
 
 h2, h1 {

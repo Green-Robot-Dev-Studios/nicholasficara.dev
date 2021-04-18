@@ -55,7 +55,7 @@ export function start() {
     document
         .querySelector("#home")
         .addEventListener("animationend", ()=>ready(1));
-    document.querySelector("#bg").volume = 0.2;
+    document.querySelector("#bg").volume = 0.05;
     document.getElementById("music").onchange = (element) => {
         if (element.target.checked) document.getElementById("bg").play();
         if (!element.target.checked) document.getElementById("bg").pause();
@@ -140,7 +140,7 @@ function addHDRI() {
     geometry.scale(-1, 1, 1);
 
     const material = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader(manager).load("./assets/hdr.jpg"),
+        map: new THREE.TextureLoader(manager).load("./assets/4.jpg"),
     });
 
     HDRI = new THREE.Mesh(geometry, material);
@@ -267,7 +267,7 @@ function animate() {
     water.material.uniforms["time"].value += 1.0 / 60.0;
 
     // update sky
-    HDRI.rotation.x += 0.0003;
+    //HDRI.rotation.x += 0.0003;
 
     renderer.render(scene, camera);
     overlay.render(sceneCSS, camera);
