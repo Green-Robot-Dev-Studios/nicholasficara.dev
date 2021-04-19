@@ -2,6 +2,7 @@ import * as THREE from "./lib/three.module.js";
 import { DeviceOrientationControls } from "./lib/DeviceOrientationControls.js";
 import { OrbitControls } from "./lib/OrbitControls.js";
 import { Water } from "./lib/Water.js";
+import { BendModifier } from "./lib/BendModifier.js";
 import {
     CSS3DRenderer,
     CSS3DObject,
@@ -85,14 +86,14 @@ function addWater() {
         fog: true,
     });
 
-    water.position.set(0, -30, 0);
+    water.position.set(0, -10, 0);
     water.rotation.x = -Math.PI / 2;
     //console.log(water.material.uniforms.size)
     water.material.uniforms.size.value = 10;
     scene.add(water);
 }
 
-function text(font, textContent, position, rotation) {
+function text(font, textContent, position, rotation, bend = false) {
     const geometry = new THREE.TextGeometry(textContent, {
         font: font,
         size: 20,
@@ -100,6 +101,18 @@ function text(font, textContent, position, rotation) {
         curveSegments: 12,
         bevelEnabled: false,
     });
+
+    if (bend) {
+        var modifier = new BendModifier();
+        modifier
+            .set(
+                new THREE.Vector3(0, -1, 0),
+                new THREE.Vector3(0, 0, 1),
+                Math.PI / 9
+            )
+            .modify(geometry);
+    }
+
     const material = new THREE.MeshStandardMaterial({
         color: "#fff",
         emissive: "#000",
@@ -111,14 +124,15 @@ function text(font, textContent, position, rotation) {
     text.position.set(position[0], position[1], position[2]);
     text.rotateY(rotation);
     scene.add(text);
+    return text;
 }
 
 function addText() {
     const loader = new THREE.FontLoader();
 
     loader.load("assets/helvetiker_regular.typeface.json", function (font) {
-        text(font, "Nicholas Ficara", [0, 75, 300], Math.PI);
-        text(font, "Contact Me", [0, 75, -300], 0);
+        text(font, "Nicholas Ficara", [0, 125, 300], Math.PI, true);
+        text(font, "Connect with me", [0, 75, -300], 0);
         text(font, "Skills Wall", [300, 75, 0], -Math.PI/2);
         text(font, "My Projects", [-300, 75, 0], Math.PI / 2);
     });
@@ -135,19 +149,19 @@ function addHelper() {
 }
 
 function addHDRI() {
-    const geometry = new THREE.SphereGeometry(2500, 50, 30);
+    const geometry = new THREE.SphereGeometry(10000, 50, 30);
     // invert the geometry on the x-axis so that all of the faces point inward
     geometry.scale(-1, 1, 1);
 
     const material = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader(manager).load("./assets/hdr.png"),
+        map: new THREE.TextureLoader(manager).load("./assets/006.jpeg"),
     });
 
     HDRI = new THREE.Mesh(geometry, material);
     scene.add(HDRI);
 
-    HDRI.rotateY(Math.PI/2);
-    HDRI.rotateZ(Math.PI / 2);
+    HDRI.rotateY(Math.PI/2+0.2);
+    //HDRI.rotateZ(-Math.PI / 6);
 }
 
 function addHTML() {
@@ -157,7 +171,7 @@ function addHTML() {
     objectF.applyMatrix4(new THREE.Matrix4().makeScale(-1, 1, 1));
     var objectB = new CSS3DObject(overlayElementB);
     sceneCSS.add(objectB);
-    objectB.position.set(0, 0, -500);
+    objectB.position.set(0, 0, -250);
     var objectL = new CSS3DObject(overlayElementL);
     sceneCSS.add(objectL);
     objectL.position.set(500, 0, 0);
@@ -167,6 +181,10 @@ function addHTML() {
     objectR.position.set(500, 0, 0);
     objectR.rotation.y = Math.PI / 2;
     objectR.applyMatrix4(new THREE.Matrix4().makeScale(-1, 1, 1));
+}
+
+function addParticles() {
+    
 }
 
 function init() {
@@ -206,7 +224,7 @@ function init() {
         75,
         window.innerWidth / window.innerHeight,
         1,
-        5000
+        10001
     );
 
     // scene -> dummy (for device) -> camera (for orbit)
@@ -235,9 +253,10 @@ function init() {
 
     addHDRI();
     //addHelper();
-    //addWater();
+    addWater();
     addText();
     addHTML();
+    addParticles();
 
     document.querySelector("#bg").play();
     window.addEventListener("resize", onWindowResize);
@@ -267,7 +286,7 @@ function animate() {
     }
 
     // update water
-    //water.material.uniforms["time"].value += 1.0 / 60.0;
+    water.material.uniforms["time"].value += 1.0 / 60.0;
 
     // update sky
     //HDRI.rotation.x += 0.0003;

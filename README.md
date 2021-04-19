@@ -5,6 +5,6 @@ Personal Page
 - Basic elements
 - ~~DeviceControls toggle button~~
 - ~~Music controls toggle button~~
-- Content
+- Content F B L R
 - ~~Get new HDRI~~
-- Loading
+- ~~Loading~~

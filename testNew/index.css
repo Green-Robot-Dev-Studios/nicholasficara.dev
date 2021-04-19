@@ -84,6 +84,18 @@ h2, h1 {
   color: white;
 }
 
+#overlayL {
+  min-width: 850px;
+  width: 50%;
+  text-align: center;
+  pointer-events: none !important;
+  image-rendering: pixelated;
+}
+
+#overlayB {
+  image-rendering: pixelated;
+}
+
 #world {
   position: fixed;
   overflow: hidden;
