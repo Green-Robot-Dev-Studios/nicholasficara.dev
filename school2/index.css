@@ -1,0 +1,130 @@
+body {
+    background-color: #121212;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+}
+
+.root {
+    margin: auto;
+    width: 60%;
+    padding: 40px;
+}
+
+.header {
+    display: table;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none; 
+}
+
+.logo {
+    background: #ffa86a;
+    color: #000;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+.bars {
+    content: "";
+    background: repeating-linear-gradient(90deg,#ffa86a,#ffa86a 2px,transparent 0,transparent 10px);
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    right: 10px;
+}
+
+.list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.item a {
+    margin-right: 20px;
+    color: #fff;
+}
+
+article h2 {
+    color: #ffa86a;
+    padding-bottom: 10px;
+    border-bottom: 3px dotted #ffa86a;
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 60px;
+}
+
+article h2::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    display: block;
+    border-bottom: 3px dotted #ffa86a;
+    width: 100%;
+}
+
+article h1 {
+    color: rgba(255, 255, 255, 0.87);
+}
+
+h3 {
+    color: rgba(255, 255, 255, 0.87);
+    /* margin-bottom: 3px; */
+}
+
+article p {
+    color: rgba(255, 255, 255, 0.87);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+article ul li {
+    position: relative;
+    list-style: none;
+    color: #fff;
+}
+
+article ul li::before {
+    content: "-";
+    position: absolute;
+    left: -20px;
+    color: #ffa86a;
+}
+
+article a {
+    color: rgb(194, 192, 228);
+}
+
+article iframe {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+article hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: none;
+    background: hsla(0,0%,100%,.1);
+    height: 2px;
+}
+
+.footer {
+    padding: 40px 0;
+    color: 	#A9A9A9;
+}
+
+.footer a {
+    color: 	#A9A9A9;
+}
+
+img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  border: 5px dashed #ffa86a;
+  border-radius: 10px;
+}

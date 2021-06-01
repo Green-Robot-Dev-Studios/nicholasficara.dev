@@ -149,7 +149,7 @@ function addHelper() {
 }
 
 function addHDRI() {
-    const geometry = new THREE.SphereGeometry(10000, 50, 30);
+    const geometry = new THREE.SphereGeometry(750, 50, 30);
     // invert the geometry on the x-axis so that all of the faces point inward
     geometry.scale(-1, 1, 1);
 
@@ -159,6 +159,7 @@ function addHDRI() {
 
     HDRI = new THREE.Mesh(geometry, material);
     scene.add(HDRI);
+    HDRI.position.set(0, -10, 0);
 
     HDRI.rotateY(Math.PI/2+0.2);
     //HDRI.rotateZ(-Math.PI / 6);
@@ -184,7 +185,27 @@ function addHTML() {
 }
 
 function addParticles() {
-    
+    const geometry = new THREE.BufferGeometry;
+    var points = [];
+    for (let i = 0; i < 250; i++) {
+        const x = THREE.MathUtils.randFloatSpread(1000);
+        const y = THREE.MathUtils.randFloatSpread(1000);
+        const z = THREE.MathUtils.randFloatSpread(1000);
+
+        points.push(x, y, z);
+    }
+    geometry.setAttribute(
+        "position",
+        new THREE.Float32BufferAttribute(points, 3)
+    );
+
+    const material = new THREE.PointsMaterial({
+        color: "#fff"
+    });
+
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+    console.log(geometry.attributes);
 }
 
 function init() {
@@ -224,7 +245,7 @@ function init() {
         75,
         window.innerWidth / window.innerHeight,
         1,
-        10001
+        1000
     );
 
     // scene -> dummy (for device) -> camera (for orbit)

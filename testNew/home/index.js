@@ -1,5 +1,3 @@
-import { start } from './world.js';
-
 const pages = new Pageable('#container', {
   childSelector: '[data-anchor]', // CSS3 selector string for the pages
   anchors: [], // define the page anchors
@@ -20,14 +18,3 @@ const pages = new Pageable('#container', {
     keydown: true, // enable / disable keyboard navigation
   }
 });
-
-let hasRendered = false;
-pages.on('scroll.end', data => {
-  if(data.index === 1 && !hasRendered) {
-    start();
-    hasRendered = true;
-  }
-});
-
-//TODO testing
-start();
