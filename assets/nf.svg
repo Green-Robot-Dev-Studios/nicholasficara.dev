@@ -1,0 +1,17 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter height="200%" width="200%" y="-50%" x="-50%" id="svg_3_blur">
+   <feGaussianBlur stdDeviation="0.3" in="SourceGraphic"/>
+  </filter>
+  <filter id="svg_4_blur">
+   <feGaussianBlur stdDeviation="0.3" in="SourceGraphic"/>
+  </filter>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <text stroke="#000" opacity="0.9" filter="url(#svg_4_blur)" transform="matrix(23.9643 0 0 23.9643 -10736.1 -3915.91)" xml:space="preserve" text-anchor="start" font-family="'Poppins SemiBold'" font-size="24" id="svg_4" y="187.01211" x="466.81742" stroke-width="0" fill="#00bf00">F</text>
+  <text stroke="#000" opacity="0.9" filter="url(#svg_3_blur)" stroke-width="0" font-style="normal" font-weight="normal" transform="matrix(23.5072 0 0 23.5072 -4618.42 -4926.71)" xml:space="preserve" text-anchor="start" font-family="'Poppins SemiBold'" font-size="24" id="svg_3" y="229.16616" x="198.33845" fill="#00bf00">N</text>
+  <text stroke="#000" opacity="0.9" stroke-width="0" font-style="normal" font-weight="normal" transform="matrix(23.5072 0 0 23.5072 -4618.42 -4926.71)" xml:space="preserve" text-anchor="start" font-family="'Poppins SemiBold'" font-size="24" id="svg_1" y="228.50488" x="199.16505" fill="#e01616">N</text>
+  <text stroke="#000" opacity="0.9" stroke-width="0" font-style="normal" font-weight="normal" transform="matrix(23.4611 0 0 23.4611 -8046.24 -8655.38)" xml:space="preserve" text-anchor="start" font-family="'Poppins SemiBold'" font-size="24" id="svg_2" y="392.48069" x="363.0868" fill="#d82b2b">F</text>
+ </g>
+</svg>

@@ -28,6 +28,8 @@ let camera,
     water,
     HDRI, 
     manager, 
+    particles,
+    velocities,
     mobile = false, 
     animationDone = false, 
     loadingDone = false, 
@@ -162,6 +164,8 @@ function addHDRI() {
     HDRI.position.set(0, -10, 0);
 
     HDRI.rotateY(Math.PI/2+0.2);
+
+
     //HDRI.rotateZ(-Math.PI / 6);
 }
 
@@ -187,12 +191,21 @@ function addHTML() {
 function addParticles() {
     const geometry = new THREE.BufferGeometry;
     var points = [];
+    velocities = [];
     for (let i = 0; i < 250; i++) {
-        const x = THREE.MathUtils.randFloatSpread(1000);
-        const y = THREE.MathUtils.randFloatSpread(1000);
-        const z = THREE.MathUtils.randFloatSpread(1000);
+        // x, z -> 100 to 200 and -100 to -200
+        // y -> 100 to 300
+        const x = (THREE.MathUtils.randFloatSpread(100)+100) * (Math.round(Math.random()) * 2 - 1);
+        const y = THREE.MathUtils.randFloatSpread(200)+100;
+        const z = (THREE.MathUtils.randFloatSpread(100)+100) * (Math.round(Math.random()) * 2 - 1);
 
         points.push(x, y, z);
+
+        const speed = 0.05;
+        const velX = Math.random()*speed * (Math.round(Math.random()) * 2 - 1);
+        const velY = Math.random()*speed * (Math.round(Math.random()) * 2 - 1);
+        const velZ = Math.random()*speed * (Math.round(Math.random()) * 2 - 1);
+        velocities.push(velX, velY, velZ);
     }
     geometry.setAttribute(
         "position",
@@ -200,10 +213,15 @@ function addParticles() {
     );
 
     const material = new THREE.PointsMaterial({
-        color: "#fff"
+        color: "#FFF",
+        map: THREE.ImageUtils.loadTexture(
+            "./assets/dust.png"
+        ),
+        blending: THREE.AdditiveBlending,
+        transparent: true
     });
 
-    const particles = new THREE.Points(geometry, material);
+    particles = new THREE.Points(geometry, material);
     scene.add(particles);
     console.log(geometry.attributes);
 }
@@ -272,6 +290,11 @@ function init() {
     light.position.set(0, 50, 100);
     scene.add(light);
 
+    const near = 700;
+    const far = 1000;
+    const color = "lightblue";
+    scene.fog = new THREE.Fog(color, near, far);
+
     addHDRI();
     //addHelper();
     addWater();
@@ -311,6 +334,25 @@ function animate() {
 
     // update sky
     //HDRI.rotation.x += 0.0003;
+
+    // update particles
+    const positions = particles.geometry.attributes.position.array;
+    //console.log(positions.length);
+    for (var i = 0; i < positions.length; i+=3) {
+        positions[i] += velocities[i];
+        positions[i+1] += velocities[i+1];
+        positions[i+2] += velocities[i+2];
+        // reset particles
+        if (positions[i] > 750) positions[i] = -750;
+        if (positions[i] < -750) positions[i] = 750;
+        if (positions[i+1] > 300) positions[i+1] = -100;
+        if (positions[i+1] < -100) positions[i+1] = 300;
+        if (positions[i+2] > 750) positions[i+2] = -750;
+        if (positions[i+2] < -750) positions[i+2] = 750;
+    }
+    //console.log(velocities.length);
+    
+    particles.geometry.attributes.position.needsUpdate = true;
 
     renderer.render(scene, camera);
     overlay.render(sceneCSS, camera);

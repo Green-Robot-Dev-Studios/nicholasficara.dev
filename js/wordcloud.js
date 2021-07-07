@@ -1,0 +1,50 @@
+const container = "#tagcloud";
+const texts = [
+  "Python",
+  "Node.js",
+  "JavaScript",
+  "ArchLinux",
+  "GraphQL",
+  "AdobePhoneGap",
+  "AdobePhotoshop",
+  "Android",
+  "AngularJS",
+  "ApacheCordova",
+  "Arduino",
+  "Atom",
+  "Blender",
+  "C",
+  "C++",
+  "Chart.js",
+  "CSS3",
+  "Dart",
+  "Dialogflow",
+  "Docker",
+  "Flutter",
+  "GIMP",
+  "Git",
+  "Github",
+  "GNUBash",
+  "GodotEngine",
+  "HTML5",
+  "Ionic",
+  "JavaScript",
+  "Java",
+  "Neovim",
+  "ngrok",
+  "p5.js",
+  "RaspberryPi",
+  "React",
+  "TensorFlow",
+  "THREE.js",
+  "TypeScript",
+  "VisualStudioCode",
+  "Vue.js",
+];
+const options = {
+  radius: 300,
+
+};
+
+TagCloud(container, texts, options);
+
