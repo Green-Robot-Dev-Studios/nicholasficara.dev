@@ -6,7 +6,7 @@ const ctx = canvas.getContext("2d");
 
 const settings = {
   numTendrils: 30,
-  tendrilLength: 50,
+  tendrilLength: 30,
   friction: 0.5,
   dampening: 0.25,
   tension: 0.98,
@@ -89,8 +89,11 @@ class Tendril {
     b = this.nodes[i + 1];
 
     ctx.quadraticCurveTo(a.x, a.y, b.x, b.y);
-    
-    ctx.strokeStyle = "#0FFF2050";
+
+    // ctx.strokeStyle = "#0FFF2050";
+    // ctx.strokeStyle = "#392eabFF";
+    // ctx.strokeStyle = "#23c19d90";
+    ctx.strokeStyle = "#ea002790";
 
     ctx.stroke();
     ctx.closePath();
@@ -98,8 +101,13 @@ class Tendril {
 }
 
 function mouseMove(e) {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+  if (e.touches) {
+    mouseX = e.touches[0].pageX;
+    mouseY = e.touches[0].pageY;
+  } else {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  }
   e.preventDefault();
 }
 
@@ -114,6 +122,7 @@ function init() {
   }
   
   document.addEventListener('mousemove', mouseMove);
+  document.addEventListener("touchmove", mouseMove);
   window.addEventListener("resize", resize);
 
   resize();

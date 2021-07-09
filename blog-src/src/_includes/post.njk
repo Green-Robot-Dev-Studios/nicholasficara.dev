@@ -1,0 +1,11 @@
+---
+layout: base.njk
+---
+
+<section>
+  <h1>{{ title }}</h1>
+  <h4>{{ date.toUTCString().substring(0, 17) }}</h4>
+  <h4>{{ author }}</h4>
+</section>
+
+{{ content | safe }}

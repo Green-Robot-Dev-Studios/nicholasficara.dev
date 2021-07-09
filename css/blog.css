@@ -1,0 +1,14 @@
+img {
+  width: 20vw;
+  margin: 0 auto;
+  display: flex;
+  align-self: center;
+}
+
+h4 {
+  color: rgb(195, 194, 194);
+}
+
+#container {
+  font-size: 1.2rem;
+}

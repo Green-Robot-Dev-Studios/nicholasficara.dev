@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="title" content="Nicholas Ficara - Developper Portfolio" />
+  <meta name="description"
+    content="Nicholas Ficara's personal portfolio and blog. A passionate young developper from Ottawa.">
+
+  <meta name="robots">
+  <meta name="googlebot">
+
+  <title>Nicholas Ficara</title>
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/blog.css">
+</head>
+
+<body>
+  <menu id="menu">
+    <a class="pointer" href="/">
+      <img alt="Initials NF" src="/assets/nf4.png" style="width: 13vw; filter: hue-rotate(251deg);" />
+    </a>
+    <nav id="nav">
+      <a class="link" href="/blog">Back to Articles</a>
+      <a class="link" href="/">Return Home</a>
+    </nav>
+    <footer>
+      <p>© Nicholas Ficara</p>
+    </footer>
+  </menu>
+
+  <div id="container">
+  
+<section>
+  <h1>My experience using Svelte</h1>
+  <h4>Tue, 20 Apr 2021 </h4>
+  <h4>Nicholas Ficara</h4>
+</section>
+
+<p>A few weeks ago I started building a web app to anonymously connect students with trained peers. The project needed to be on a small budget (aka free). Most of the stuff I build is on a similar budget, and by that I mean the exact same budget. This is good in some ways. It teaches me to be resourceful and use the free tools at my disposal and work around the old school way of hosting a MySQL server (which I have done 😢). I decided to build a static website that utilizes Firebase. I already had experience with Firebase, and I loved it. In my opinion, the best way to build a serverless application is Firebase. It's incredibly well built and intuitive. Additionally, it's compatible with any stack you can imagine. It <em>genuinely</em> made building the app fun. No fancy queries, no ugly code, just pure ease of use. For example, the plugin for Firebase and Svelte to work together is called SvelteFire. It's incredibly easy to work with. Most of my code was right in the markdown of the site, with multiple levels of asynchronous calls. The amount of abstraction was uncanny and it somehow didn't lead to any problems or shortcomings. In my opinion, it's as close to perfect as you can get with database interaction. For instance, this was the code to display all active chats:</p>
+<pre><code class="language-html">&lt;FirebaseApp {firebase}&gt;
+  &lt;User let:user let:auth&gt;
+    &lt;Collection 
+      path=&quot;/users&quot; 
+      query={ref =&gt; ref.orderBy(&quot;timeCreated&quot;)}
+      let:data={threads}
+      let:ref={threadsRef}&gt;
+
+      &lt;Table striped responsive&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Identifier&lt;/th&gt;
+            &lt;th&gt;Time Created&lt;/th&gt;
+            &lt;th&gt;Is Chatting&lt;/th&gt;
+            &lt;th&gt;Is Finished&lt;/th&gt;
+            &lt;th&gt;Link&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          {#each threads as row (row.id)}
+            &lt;tr&gt;
+              &lt;th scope=&quot;row&quot;&gt;{row.name ? row.name : &quot;No Name&quot;}&lt;/th&gt;
+              &lt;td&gt;{row.timeCreated ? row.timeCreated.toDate().toLocaleString() : &quot;...&quot;}&lt;/td&gt;
+              &lt;td&gt;{row.isChatting ? &quot;✅&quot; : &quot;❌&quot;}&lt;/td&gt;
+              &lt;td&gt;{row.isFinished ? &quot;✅&quot; : &quot;❌&quot;}&lt;/td&gt;
+              &lt;td&gt;&lt;a href=&quot;#/chat/1/{row.id}&quot;&gt;Link&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+          {/each}
+        &lt;/tbody&gt;
+      &lt;/Table&gt;
+
+    &lt;/Collection&gt;
+  &lt;/User&gt;
+&lt;/FirebaseApp&gt;
+</code></pre>
+<p>All I had to do was open a tag <code>&lt;FirebaseApp&gt;</code> with a reference to the Firebase library. Next I used the <code>&lt;User&gt;</code> tag which waits for the user to load in and then sets <code>user</code> to the current user. After the user is authenticated, I use the <code>&lt;Collection&gt;</code> tag which waits for the given collection to load and then gives you the <code>data</code> variable to work with. It's incredibly intuitive.</p>
+<h2>Here's the best part</h2>
+<p>It all compiles to standard javascript. Yes you read that correctly. All of this insanely abstracted and fancy code compiles right down to javascript. There is no overhead library like React that has to be loaded in. Svelte is more of a compiler than a javascript framework, and I love it. This strategy allows for easy implementation as a static website, more reliable outputs, etc. On top of all of this, if you encounter a nasty bug (I haven't) you can go into the compiled javascript and see what went wrong. It's usually decently readable.</p>
+<h2>Conclusion</h2>
+<p>In this project, I learned that I love Svelte. I will be sticking to it in the future over React. Even though it's not as mature as React, and I did have a few issues with the way styles are applied, I think it has serious potential to overtake React.</p>
+
+  </div>
+</body>
+
+</html>
