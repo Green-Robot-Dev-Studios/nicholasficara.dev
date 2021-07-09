@@ -108,7 +108,7 @@ function mouseMove(e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
   }
-  e.preventDefault();
+  // e.preventDefault();
 }
 
 function resize() {
