@@ -166,6 +166,8 @@ body {
 
 .icon-small {
   height: 2vh;
+  width: unset !important;
+  display: flex;
 }
 
 .tag {
