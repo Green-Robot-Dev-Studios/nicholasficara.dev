@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
   {% for post in collections.all | reverse %}
     
       <article class="article">
-        <a class="article-link" href="{{ post.url | url }}"><h1>{{ post.data.title }}</h1></a>
+        <a class="article-link" href="{{ post.url | url }}"><h1 class="colored-link">{{ post.data.title }}</h1></a>
         <h4>Published {{ post.data.date.toUTCString().substring(0, 17) }}</h4>
         <h4>By {{ post.data.author }}</h4>
         {% for tag in post.data.tags %}

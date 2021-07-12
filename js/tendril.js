@@ -122,7 +122,7 @@ function init() {
   }
   
   document.addEventListener('mousemove', mouseMove);
-  document.addEventListener("touchmove", mouseMove);
+  // document.addEventListener("touchmove", mouseMove);
   window.addEventListener("resize", resize);
 
   resize();

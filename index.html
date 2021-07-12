@@ -22,13 +22,14 @@
     <body>
         <menu id="menu">
             <a class="pointer" onclick="document.getElementById('page-1').scrollIntoView()">
-                <img alt="Initials NF" src="./assets/nf4.png" style="width: 13vw;"/>
+                <img alt="Initials NF" src="./assets/nf4.png" style="width: 13vw; filter: saturate(0.9);"/>
             </a>
             <nav id="nav">
                 <a class="link" onclick="document.getElementById('page-2').scrollIntoView()">About Me</a>
                 <a class="link" onclick="document.getElementById('page-3').scrollIntoView()">Skills</a>
-                <a class="link" onclick="document.getElementById('page-4').scrollIntoView()">Blog</a>
-                <a class="link" onclick="document.getElementById('page-5').scrollIntoView()">Contact</a>
+                <a class="link" onclick="document.getElementById('page-4').scrollIntoView()">Projects</a>
+                <a class="link" onclick="document.getElementById('page-5').scrollIntoView()">Blog</a>
+                <a class="link" onclick="document.getElementById('page-6').scrollIntoView()">Contact</a>
             </nav>
             <footer>
                 <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
@@ -79,11 +80,40 @@
 
             <div id="page-4">
                 <section>
+                    <h1>Featured Projects</h1>
+                    <div id="article-container">
+                        <article class="article">
+                            <a class="article-link" rel="noreferrer nofollow" target="_blank" 
+                                href="https://github.com/Green-Robot-Dev-Studios/SchoolMHC">
+                                <h1 class="colored-link">SchoolMHC</h1>
+                                <p>A mental health chat platform built for students, by students.</p>
+                            </a>
+                        </article>
+                        <article class="article">
+                            <a class="article-link" rel="noreferrer nofollow" target="_blank"
+                                href="https://github.com/Green-Robot-Dev-Studios/Knightwatch">
+                                <h1 class="colored-link">School Newspaper</h1>
+                                <p>Fully automatic SSG with GitHub CI/CD pipelines based on a Google Drive CMS.</p>
+                            </a>
+                        </article>
+                        <article class="article">
+                            <a class="article-link" rel="noreferrer nofollow" target="_blank"
+                                href="https://github.com/Green-Robot-Dev-Studios/mandelbg">
+                                <h1 class="colored-link">MandelBG</h1>
+                                <p>Live fractal wallpaper for Linux.</p>
+                            </a>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <div id="page-5">
+                <section>
                     <h1>Blog - Featured Articles</h1>
                     <div id="article-container">
                         <article class="article">
                             <a class="article-link" href="/blog/posts/docs-as-a-cms/">
-                                <h1>Docs as a CMS</h1>
+                                <h1 class="colored-link">Docs as a CMS</h1>
                             </a>
                             <h4>Published Sat, 03 Jul 2021</h4>
                             <h4>By Nicholas Ficara</h4>
@@ -92,7 +122,7 @@
                         </article>
                         <article class="article">
                             <a class="article-link" href="/blog/posts/fully-automatic-youtube-video-generation/">
-                                <h1>Making YouTube Videos Completely Automatically</h1>
+                                <h1 class="colored-link">Making YouTube Videos Completely Automatically</h1>
                             </a>
                             <h4>Published Wed, 09 Sep 2020</h4>
                             <h4>By Nicholas Ficara</h4>
@@ -102,7 +132,7 @@
                         </article>
                         <article class="article">
                             <a class="article-link" href="/blog/posts/mandelbg/">
-                                <h1>Fractals as a Live Wallpaper</h1>
+                                <h1 class="colored-link">Fractals as a Live Wallpaper</h1>
                             </a>
                             <h4>Published Wed, 28 Apr 2021</h4>
                             <h4>By Nicholas Ficara</h4>
@@ -111,7 +141,7 @@
                         </article>
                         <article class="article">
                             <a class="article-link" href="/blog/posts/gameboy-emulator/">
-                                <h1>Why Build a Gameboy Emulator</h1>
+                                <h1 class="colored-link">Why Build a Gameboy Emulator</h1>
                             </a>
                             <h4>Published Tue, 20 Apr 2021</h4>
                             <h4>By Nicholas Ficara</h4>
@@ -124,7 +154,7 @@
                 </section>
             </div>
 
-            <div id="page-5">
+            <div id="page-6">
                 <section style="width: 100%;">
                     <h1>Contact Me!</h1>
                     <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">

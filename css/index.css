@@ -123,6 +123,14 @@ body {
   display: flex;
   align-items: center;
 }
+
+#page-6 {
+  min-height: 100vh;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+}
+
 @keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
@@ -181,6 +189,11 @@ body {
   max-width: 600px;
   width: 100%;
   padding-right: 4vw;
+}
+
+.colored-link {
+  color: rgb(240, 69, 69);
+  text-decoration: underline;
 }
 
 @keyframes MoveUpDown {
