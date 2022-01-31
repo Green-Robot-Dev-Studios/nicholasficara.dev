@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Send a private msg</title>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.min.js"
+            integrity="sha512-zDvrqenA0eFJZCxBsryzUZcvihvNlEXbteMv62yRxdhR4s7K1aaz+LjsRyfk6M+YJLyAJEuuquIAI8I8GgLC8A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script type="text/javascript">
+            function encrypt(msg, key) {
+                let encrypt = new JSEncrypt();
+                encrypt.setPublicKey(key);
+                return (encrypted = encrypt.encrypt(msg));
+            }
+
+            function generate() {
+                // 1024 bit key (don't use this)
+                // let key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDWT7yv+xjfZHh4sdUUnqyOxC0mFGwB9jDqh+/6Tx8vRwWf0Zlm8IiER6SqYmQiXn2Jc3Znv7R4YRqBTzMJ7TzCbntUPPYUim5Hmav9WjYjvulOkATizw5cmL1W50Ar2YNt+S2Mtmuhwmglg5oElSusSEhfIAzjJe2WpRpxAueXUwIDAQAB";
+                // 4096 bit key. much better
+                let key = "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAi+XFrKDI2hXziKDiEn5Yu3kHtbST3+9qO7eT/KaGZcv8CVfkipGhDYGKO/IkG9gkpIJQreCdD4za1GLtcy2ioP+BStbGSg5Lz8SVYEgmPUw1vtaNCs6M0HT02KV/x3Fs73kAK05qPkpTQo5kEcT/YLpAiGa9aABru5fYavcT6drSOokjUdJzqJlOjAnpm0AA85+a8b2r9vD9Ju8rDsky+v/0uRaXp8BBBxtWoJF3/ldk3185Bu4ULfsNNfZ0Y6DV1JpGhom10vatvBZ+IQ8EOIaBc+0tCqfy1FdXYur0xrP981cdXJZfsiarC9OP4/f6N/M7mI7M4qmnqe7lonxhI8J24FVa6yuR/aUMO4tajv18axRHzLeEvqGmYAHsNBeDChKQ+Q9wT6AExBjH8rs4Ul9ycgzniahustx0YjWbeiRg23/qDklq6TFvAlBFHGqaJNT33lRlMHlQriB8fayBJBV8ny8VqBtqfEUlfW5O6ixIUfwmvCSfdGBv6NnAj2y1ziT3+lL5o9/mK29JKR1MmIGzINjV7k7+7ZOhDm9sRpzYYgEoDJONIOpU90tGUxTizA9uFomJsHv6q+9IWlXvC46f6LdhZVxEjFKEm5dEe4AETUkirQ4b7etj0GxZulTVvpZ6xzTV+TrxAQXCN2sak6LAL249p7E6o9pmtkuFlEkCAwEAAQ=="
+                let msg = document.getElementById("msg").value;
+                let encrypted = encrypt(msg, key);
+                document.getElementById("cipher").value = encrypted ? encrypted : "Too long";
+            }
+        </script>
+    </head>
+    <body>
+        <label for="msg">Message (500 characters max)</label><br />
+        <textarea oninput="generate()" id="msg" rows="15" cols="65"></textarea><br />
+        <label for="cipher">Cipher to send Nick</label><br />
+        <textarea id="cipher" rows="15" cols="65" spellcheck="false"></textarea><br />
+    </body>
+</html>
