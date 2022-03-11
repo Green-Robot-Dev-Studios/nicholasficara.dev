@@ -88,8 +88,8 @@ async function type(
 
 	let {
 		wait = 30,
-		initialWait = 3000,
-		finalWait = 1500,
+		initialWait = 1000,
+		finalWait = 500,
 		lineWait = 100,
 		typerClass = "",
 		useContainer = false,
