@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/nickficara
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://nicholasficara.dev
+  * I am nickficara (https://keybase.io/nickficara) on keybase.
+  * I have a public key ASD5Qhq1KKQnjkc1kHXy0mKRiOV-t8br43R8LgGTnE7lUgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120f9421ab528a4278e47359075f2d2629188e57eb7c6ebe3747c2e01939c4ee5520a",
+      "host": "keybase.io",
+      "kid": "0120f9421ab528a4278e47359075f2d2629188e57eb7c6ebe3747c2e01939c4ee5520a",
+      "uid": "ab79f669e9d8ca28d78135e604174919",
+      "username": "nickficara"
+    },
+    "merkle_root": {
+      "ctime": 1656874658,
+      "hash": "ecedb9d2549488c5fcfc9748d8aa5b79589c84be2ac92cc80e524ad8b6fda5595acdccd11984ee7b5c8c7ddffb0645e23150e178c99138431d53bdaa0568ecec",
+      "hash_meta": "c2a40fd7e33bf5a907d80e52606e8b6a512c519a66c9ab31505095dcd19be19a",
+      "seqno": 22783784
+    },
+    "service": {
+      "entropy": "yqLTzDk++iUUqRTwFyO7ptHO",
+      "hostname": "nicholasficara.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.0.1"
+  },
+  "ctime": 1656874722,
+  "expire_in": 504576000,
+  "prev": "ab5a539adae355cd8b6f572711dfafe07221ec9a92c4b5d457b4297968c17059",
+  "seqno": 5,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg+UIatSikJ45HNZB18tJikYjlfrfG6+N0fC4Bk5xO5VIKp3BheWxvYWTESpcCBcQgq1pTmtrjVc2Lb1cnEd+v4HIh7JqSxLXUV7QpeWjBcFnEIKDH6dEMshneTGjwLCZENjaheuiBt1/NjYJjGwliviqrAgHCo3NpZ8RAC2Wihe3GSapvmvr/hENplLGumMrCui/HXLo0d+aH5MPH4rPnpfJVoekmh7nfh9jQGTkbQZH544YcvShagj+ABqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEICXrCfVcxMIxamvcc8xFB35M8bZNnHac6Hjvrc2jjlqMo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nickficara
+
+==================================================================
