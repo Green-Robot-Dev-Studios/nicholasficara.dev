@@ -1,0 +1,333 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.js"></script>
+        <script>
+            let savedTransactions;
+
+            async function getClip() {
+                try {
+                    const permission = await navigator.permissions.query({
+                        name: "clipboard-read",
+                    });
+                    if (permission.state === "denied") {
+                        throw new Error("Not allowed to read clipboard.");
+                    }
+                    const clipboardContents = await navigator.clipboard.read();
+                    const table = await (
+                        await clipboardContents[0].getType("text/html")
+                    ).text();
+                    const element = document.createElement("div");
+                    element.innerHTML = table;
+                    return element;
+                } catch (error) {
+                    console.error(error.message);
+                }
+            }
+
+            function extract(el) {
+                let transactions = el.children[1].children[1].children;
+
+                let parsedTransactions = [];
+                for (let transaction of transactions) {
+                    let date = transaction.children[0].innerHTML;
+                    let amount = transaction.children[1].innerHTML;
+                    let account = transaction.children[2].innerHTML;
+                    let terminal = transaction.children[5].innerHTML;
+
+                    let parsedDate = date.slice(0, 10);
+                    let parsedTime = date.slice(11);
+                    let parsedAmount = parseFloat(
+                        amount.slice(2).replace(",", "")
+                    );
+                    let parsedAccount = parseInt(account);
+                    let parsedTerminal = terminal.slice(8);
+
+                    parsedTransactions.push({
+                        date: parsedDate,
+                        time: parsedTime,
+                        amount: parsedAmount,
+                        account: parsedAccount,
+                        terminal: parsedTerminal,
+                    });
+                }
+
+                return parsedTransactions;
+            }
+
+            function getData(transactions, emptyDays, flexDollars, wStore) {
+                let transactionsBucket = {};
+
+                let total = 0;
+
+                let minDate = Infinity;
+                let maxDate = 0;
+
+                transactions.forEach((transaction) => {
+                    let date = transaction.date;
+                    let amount = transaction.amount;
+                    let account = transaction.account;
+                    let terminal = transaction.terminal;
+                    let isFlex = [4, 5, 6].includes(account);
+
+                    if (wStore && terminal.includes("W STORE")) return;
+
+                    if (amount > 0) return;
+
+                    if (!isFlex || (isFlex && flexDollars)) {
+                        total += amount;
+                    }
+
+                    if (!transactionsBucket[date])
+                        transactionsBucket[date] = {};
+                    transactionsBucket[date]["transactions"] = [
+                        ...(transactionsBucket[date]["transactions"] || []),
+                        { amount, account },
+                    ];
+
+                    let epoch = Date.parse(transaction.date);
+                    if (epoch < minDate) minDate = epoch;
+                    if (epoch > maxDate) maxDate = epoch;
+                });
+
+                Object.keys(transactionsBucket).forEach((day) => {
+                    transactionsBucket[day]["totalMP"] = transactionsBucket[
+                        day
+                    ]["transactions"].reduce(
+                        (sum, i) => (sum += i.account === 1 ? i.amount : 0),
+                        0
+                    );
+
+                    transactionsBucket[day]["totalFD"] = transactionsBucket[
+                        day
+                    ]["transactions"].reduce(
+                        (sum, i) =>
+                            (sum += [4, 5, 6].includes(i.account)
+                                ? i.amount
+                                : 0),
+                        0
+                    );
+                });
+
+                console.debug(transactionsBucket);
+
+                let sortedDays = Object.keys(transactionsBucket).sort(
+                    (a, b) => Date.parse(a) - Date.parse(b)
+                );
+                let dailyExpenditureMP = sortedDays.map((day) => {
+                    return Math.abs(transactionsBucket[day]["totalMP"]);
+                });
+                let dailyExpenditureFD = sortedDays.map((day) => {
+                    return Math.abs(transactionsBucket[day]["totalFD"]);
+                });
+
+                let timePeriod = (maxDate - minDate) / (24 * 60 * 60 * 1000);
+
+                let averageSpendingOverPeriod = Math.abs(
+                    Math.round((total / timePeriod) * 1000) / 1000
+                );
+
+                let averageSpendingPerDay = Math.abs(
+                    Math.round((total / sortedDays.length) * 1000) / 1000
+                );
+
+                return {
+                    averageDailySpending: emptyDays
+                        ? averageSpendingOverPeriod
+                        : averageSpendingPerDay,
+                    daysConsidered: sortedDays,
+                    dailyExpenditureMP: dailyExpenditureMP,
+                    dailyExpenditureFD: dailyExpenditureFD,
+                };
+            }
+
+            function updateResults() {
+                if (!savedTransactions) return;
+                let emptyDays = document.getElementById("emptyDays").checked;
+                let flexDollars =
+                    document.getElementById("flexDollars").checked;
+                let wStore = document.getElementById("wStore").checked;
+                let data = getData(
+                    savedTransactions,
+                    emptyDays,
+                    flexDollars,
+                    wStore
+                );
+
+                let results = document.getElementById("results");
+                results.innerHTML = "";
+                results.hidden = false;
+
+                let text = document.createElement("p");
+                text.innerHTML = `Average Daily Spending: $${data.averageDailySpending}`;
+                results.append(text);
+
+                let chart = document.createElement("canvas");
+                chart.id = "spending";
+                results.append(chart);
+
+                const ctx = document.getElementById("spending");
+                const spendingChart = new Chart(ctx, {
+                    type: "bar",
+                    data: {
+                        labels: data.daysConsidered,
+                        datasets: [
+                            {
+                                label: "Meal Plan",
+                                data: data.dailyExpenditureMP,
+                                backgroundColor: "rgba(255, 99, 132, 0.9)",
+                                pointRadius: 4,
+                                pointHoverRadius: 15,
+                            },
+                            ...(flexDollars
+                                ? [
+                                      {
+                                          label: "Flex Dollars",
+                                          data: data.dailyExpenditureFD,
+                                          backgroundColor:
+                                              "rgba(99, 255, 132, 0.9)",
+                                          pointRadius: 4,
+                                          pointHoverRadius: 15,
+                                      },
+                                  ]
+                                : []),
+                        ],
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                stacked: true,
+                            },
+                            y: {
+                                beginAtZero: true,
+                                stacked: true,
+                            },
+                        },
+                    },
+                });
+
+                let info = document.createElement("p");
+                info.innerHTML =
+                    "<ul><li>Lite: $1345</li><li>Average: $1545</li><li>Hearty: $1745</li></ul>- We have about 15 weeks, not including reading week. If you eat 5 days a week, then it's 75 days. If you eat 7 days a week, it's 105 days.<br><br>- Take your total amount available and divide by the amount of days. That's what you should be targeting your spending towards. (I could code something up for this but to quote Selena Gomez, 'I mean I could, but why would I want to?')";
+                results.append(info);
+            }
+
+            document.addEventListener("paste", async (e) => {
+                e.preventDefault();
+                let element = await getClip();
+                let parsedTransactions;
+                try {
+                    parsedTransactions = extract(element);
+                } catch {
+                    alert(
+                        "Parsing of your data failed! Please review the documentation and try again. If not, contact Nick directly!"
+                    );
+                }
+                savedTransactions = parsedTransactions;
+
+                updateResults();
+            });
+        </script>
+
+        <h1>WatCard Meal Plan Budget Calculator</h1>
+        <h2>Easy as 1, 2, 3</h2>
+        <h2>*note: this only works on desktop/laptop*</h2>
+        <ol>
+            <li>
+                <h3>
+                    📎 Log on here:
+                    <a href="https://watcard.uwaterloo.ca/OneWeb/Account/LogOn"
+                        >https://watcard.uwaterloo.ca/OneWeb/Account/LogOn</a
+                    >
+                </h3>
+                <h4 style="background-color: rgba(211, 85, 78, 0.5)">
+                    (if you haven't signed up here yet, you need to create an
+                    account. it's not the same user/pass as every other site in
+                    waterloo. you use your student number and a password that
+                    you have to set)
+                </h4>
+            </li>
+            <li>
+                <h3>
+                    📊 Go to "Transactions",
+                    <em>✨select your desired date range✨</em>, and copy the
+                    table
+                </h3>
+            </li>
+            <li><h3>📋 Paste it in this box!</h3></li>
+        </ol>
+
+        <input type="text" style="margin: 1rem" />
+
+        <fieldset>
+            <legend>Options:</legend>
+            <div>
+                <input
+                    type="checkbox"
+                    id="emptyDays"
+                    onclick="updateResults()"
+                    checked
+                />
+                <label for="emptyDays"
+                    >Consider empty days in the average? (reading week, winter
+                    break, etc.)</label
+                >
+            </div>
+
+            <div>
+                <input
+                    type="checkbox"
+                    id="flexDollars"
+                    onclick="updateResults()"
+                    checked
+                />
+                <label for="flexDollars">Consider Flex Dollars?</label>
+            </div>
+
+            <div>
+                <input
+                    type="checkbox"
+                    id="wStore"
+                    onclick="updateResults()"
+                    checked
+                />
+                <label for="wStore">Remove W Store purchases?</label>
+            </div>
+        </fieldset>
+
+        <div id="results" hidden></div>
+
+        <details style="margin-top: 2rem; margin-bottom: 2rem">
+            <summary>
+                For the nerds who want to know why I had to build it this way,
+                click here.
+                <span class="icon">👈</span>
+            </summary>
+            <p>
+                I first started by looking at the Portal API that shows you the
+                balance in Portal. It turns out that API only actually returns
+                the 50 most recent transactions anyway so it's not worth using.
+                Moreover, the API uses OAuth and has only their own url
+                endpoints allow-listed. I then checked the WatCard API. The
+                problem with is it's not an API. It's an integrated (horror) of
+                a server rendered site. I wouldn't be able to do it safely with
+                user credentials. (I probably could, but I'd need to run a
+                backend and I'm cheap and lazy) While looking over this backend,
+                it was incredibly painful to read. If someone with half decent
+                1337 hack0r skills were to poke around a little, they might be
+                able to find an exploit and legally report it to whatever
+                company built this thing.
+            </p>
+        </details>
+
+        <details style="margin-top: 2rem; margin-bottom: 2rem">
+            <summary>
+                Why does this site look so terrible?
+                <span class="icon">👈</span>
+            </summary>
+            <p>Deal with it.</p>
+        </details>
+    </body>
+</html>
