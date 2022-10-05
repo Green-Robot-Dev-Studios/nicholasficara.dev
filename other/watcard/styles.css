@@ -1,0 +1,22 @@
+body {
+    font-family: 'Courier New', monospace;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+a {
+    word-wrap: break-word;
+}
+
+label {
+    user-select: none;
+}
+
+#results {
+    border-color: darkblue;
+    border-width: 3px;
+    border-style: dashed;
+    margin-top: 1rem;
+    padding: 1rem;
+}
