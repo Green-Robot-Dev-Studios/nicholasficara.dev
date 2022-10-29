@@ -1,0 +1,26 @@
+<html>
+    <head></head>
+    <body>
+        <textarea id="code" style="width: 300px; height: 300px;"></textarea>
+        <br>
+        <button onclick="go()">Go!</button>
+
+        <script>
+            function go() {
+                let textarea = document.getElementById("code")
+                let code = textarea.value.split("\n");
+
+                code = code.map((line) => {
+                    line = line.replace(/\d+\.[ \n]/g, "");
+                    line = line.replace(/\d+\.$/g, "");
+                    return line;
+                });
+                code = code.reduce((prev, current) => {
+                    return prev + current + "\n";
+                }, "");
+
+                textarea.value = code;
+            }
+        </script>
+    </body>
+</html>
