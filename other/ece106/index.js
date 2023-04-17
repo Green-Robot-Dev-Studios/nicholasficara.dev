@@ -262,7 +262,7 @@ const problems = {
                 "Qa/Qb= 4"
             ],
             why: "Chapter 7 slide 34",
-            image: "16.png",
+            image: "",
         },
     ],
     8: [
