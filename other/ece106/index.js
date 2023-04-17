@@ -243,8 +243,8 @@ const problems = {
         {
             question: "A point charge +Q is brought near a thin conducting hollow sphere of radius L that has charge +Q originally distributed uniformly on its surface. Which of these statements below are true statements for E-field at points A and B due to the point charge and spherical charge?",
             answers: [
-                "The E-field is 0 at A but non-zero at B", 
                 "The E-field is non-zero at A but 0 at B", 
+                "The E-field is 0 at A but non-zero at B", 
                 "The E-field is 0 at both A and B", 
                 "The E-field is non-zero at both A and B",
                 "Impossible to answer"
