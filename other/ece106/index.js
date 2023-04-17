@@ -877,3 +877,7 @@ let loadQuestion = () => {
 loadQuestion();
 
 // my apologies for the spaghetti code. again, just a hacky fix
+
+document.getElementById("chapter").onchange = () => {
+    loadQuestion();
+}
