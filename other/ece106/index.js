@@ -410,7 +410,7 @@ const problems = {
                 "None of the options.",
             ],
             why: "",
-            image: "",
+            image: "21.png",
         },
         {
             question: "Which of the following is not a source of magnetostatic fields (B field which does not vary with time)?",
