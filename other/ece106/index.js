@@ -83,7 +83,7 @@ const problems = {
                 "Charge will flow from the conductor on the right to the conductor on the left.",
                 "No charge will flow since the conductors are at the same potential.",
             ],
-            why: "No idea. Hmu if you know. :)",
+            why: "Right +ve plate has lower potential than the one on the left so to make them equipotential charge needs to flow to the one with lower potential. The right has lower potential because it's sandwiched between -ve plates.",
             image: "2.png",
         },
         {
