@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Svelte on Nick&#39;s Blog</title>
+    <link>https://nicholasficara.dev/blog/blog/svelte/</link>
+    <description>Recent content in Svelte on Nick&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2021-Present, Nicholas Ficara</copyright>
+    <lastBuildDate>Tue, 20 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nicholasficara.dev/blog/blog/svelte/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My experience using Svelte</title>
+      <link>https://nicholasficara.dev/blog/my-experience-using-svelte/</link>
+      <pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/my-experience-using-svelte/</guid>
+      <description>A few weeks ago I started building a web app to anonymously connect students with trained peers. The project needed to be on a small budget (aka free). Most of the stuff I build is on a similar budget, and by that I mean the exact same budget. This is good in some ways. It teaches me to be resourceful and use the free tools at my disposal and work around the old school way of hosting a MySQL server (which I have done 😢).</description>
+    </item>
+    
+  </channel>
+</rss>

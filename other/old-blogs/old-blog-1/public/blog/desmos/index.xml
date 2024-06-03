@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Desmos on Nick&#39;s Blog</title>
+    <link>https://nicholasficara.dev/blog/blog/desmos/</link>
+    <description>Recent content in Desmos on Nick&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2021-Present, Nicholas Ficara</copyright>
+    <lastBuildDate>Thu, 28 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nicholasficara.dev/blog/blog/desmos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Drawing Pictures in Desmos</title>
+      <link>https://nicholasficara.dev/blog/drawing-pictures-in-desmos/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/drawing-pictures-in-desmos/</guid>
+      <description>I was messing around with various APIs and I stumbled across a feature in Desmos that allows you to place a colored pixel anywhere on the graph. I instantly wanted to set up a script that would draw out an image.
+I decided to start small and make an apple. Here is the original image (low res for performance):
+Now I made each pixel of that apple a point on desmos:</description>
+    </item>
+    
+  </channel>
+</rss>

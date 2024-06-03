@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://nicholasficara.dev/blog/images/favicon.png" />
+<title>How I used Google Docs as a CMS for a Blog Style Website | Nick&#39;s Blog</title>
+<meta name="title" content="How I used Google Docs as a CMS for a Blog Style Website" />
+<meta name="description" content="I was assigned the task of building a newspaper/blog website for my school. The current website is built with Wix and is not responsive at all. It&rsquo;s also a genuine eyesore to look at.
+I decided I needed a CMS to get the rest of the team to be able to write content. I decided I wanted something universal and simple like a folder filled with markdown or html files. I didn&rsquo;t want to force the writers to use markdown or html, however, the main thing I wanted to avoid is having to manually copy paste content from Google Docs into a markdown/html file and then re-format everything." />
+<meta name="keywords" content="Eleventy,Jamstack," />
+
+
+<meta property="og:title" content="How I used Google Docs as a CMS for a Blog Style Website" />
+<meta property="og:description" content="I was assigned the task of building a newspaper/blog website for my school. The current website is built with Wix and is not responsive at all. It&rsquo;s also a genuine eyesore to look at.
+I decided I needed a CMS to get the rest of the team to be able to write content. I decided I wanted something universal and simple like a folder filled with markdown or html files. I didn&rsquo;t want to force the writers to use markdown or html, however, the main thing I wanted to avoid is having to manually copy paste content from Google Docs into a markdown/html file and then re-format everything." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nicholasficara.dev/blog/how-i-used-google-docs-as-a-cms-for-a-blog-style-website/" /><meta property="og:image" content="https://nicholasficara.dev/blog/images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-07-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-07-03T00:00:00+00:00" /><meta property="og:site_name" content="Nick&#39;s Blog" />
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://nicholasficara.dev/blog/images/share.png"/>
+
+<meta name="twitter:title" content="How I used Google Docs as a CMS for a Blog Style Website"/>
+<meta name="twitter:description" content="I was assigned the task of building a newspaper/blog website for my school. The current website is built with Wix and is not responsive at all. It&rsquo;s also a genuine eyesore to look at.
+I decided I needed a CMS to get the rest of the team to be able to write content. I decided I wanted something universal and simple like a folder filled with markdown or html files. I didn&rsquo;t want to force the writers to use markdown or html, however, the main thing I wanted to avoid is having to manually copy paste content from Google Docs into a markdown/html file and then re-format everything."/>
+
+
+
+<meta itemprop="name" content="How I used Google Docs as a CMS for a Blog Style Website">
+<meta itemprop="description" content="I was assigned the task of building a newspaper/blog website for my school. The current website is built with Wix and is not responsive at all. It&rsquo;s also a genuine eyesore to look at.
+I decided I needed a CMS to get the rest of the team to be able to write content. I decided I wanted something universal and simple like a folder filled with markdown or html files. I didn&rsquo;t want to force the writers to use markdown or html, however, the main thing I wanted to avoid is having to manually copy paste content from Google Docs into a markdown/html file and then re-format everything."><meta itemprop="datePublished" content="2021-07-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-07-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="463"><meta itemprop="image" content="https://nicholasficara.dev/blog/images/share.png"/>
+<meta itemprop="keywords" content="Eleventy,Jamstack," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/blog/" class="title">
+  <h2>Nick&#39;s Blog</h2>
+</a>
+<nav><a href="/blog/">Home</a>
+
+<a href="/blog/about/">About Me</a>
+
+
+<a href="/blog/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>How I used Google Docs as a CMS for a Blog Style Website</h1>
+<p>
+  <i>
+    <time datetime='2021-07-03' pubdate>
+      03 Jul, 2021
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>I was assigned the task of building a newspaper/blog website for my school. The current website is built with Wix and is not responsive at all. It&rsquo;s also a <em>genuine</em> eyesore to look at.</p>
+<p>I decided I needed a CMS to get the rest of the team to be able to write content. I decided I wanted something universal and simple like a folder filled with markdown or html files. I didn&rsquo;t want to force the writers to use markdown or html, however, the main thing I wanted to avoid is having to manually copy paste content from Google Docs into a markdown/html file and then re-format everything. I then had a realization: <strong>What if you can generate a website straight from Google Docs?</strong> It sounded like the perfect plan. I could download all the docs, convert them all to a website format like html or markdown, and then I could just piece every individual article together. <strong>Enter Mammoth.js</strong></p>
+<p>Mammoth.js is a library that allows you to convert a .docx file into a .html or .md. Unfortunately markdown is now deprecated. I decided html was still better than the alternatives. I wrote a node.js script that recursively converts all the .docx files to .html. Now I had a pipeline that could take me from a zip file of the Google Drive with all the content, all the way to html content for the website.</p>
+<h2 id="this-is-what-we-have-so-far">This is what we have so far:</h2>
+<p>The Google Drive folder is downloaded as a zip, extracted, and recursively converted into html files.</p>
+<p><img src="../mermaid-diagram-20210708145610.svg" alt="diagram"></p>
+<p>I realized I needed a framework or tool to piece together all of these dangling html files. <strong>Enter Eleventy.</strong> Eleventy seemed to be the perfect tool for the job. When I first started looking at using Eleventy, I was hesitant because I didn&rsquo;t like the idea of having Nunjucks as my main template language. I eventually decided to use it anyway, because so many awesome looking and popular websites have succeeded with it.</p>
+<p>I made myself some testing content and built out a skeleton of a website that I was happy with. With some Eleventy magic, I managed to get a fully functional website complete with sections, article pages, a navbar, a footer, etc. You can check the GitHub out <a href="https://github.com/Green-Robot-Dev-Studios/Knightwatch">here</a>.</p>
+<p>The next step was automating this entire process. I set up a GitHub action that runs my conversion script, then exports the Eleventy website and then pushes the final result to a GitHub pages website! Now every time I commit a change to the repository, a new website will completely automatically be generated.</p>
+<h2 id="what-i-learned">What I learned</h2>
+<p>Using a <a href="https://jamstack.org/what-is-jamstack/">Jamstack</a> was the way to go for this project. It made building the site enjoyable and quick. In this project, I learned about CI/CD pipelines and Eleventy.</p>
+
+</content>
+<p>
+  
+  <a href="https://nicholasficara.dev/blog/blog/eleventy/">#Eleventy</a>
+  
+  <a href="https://nicholasficara.dev/blog/blog/jamstack/">#Jamstack</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C on Nick&#39;s Blog</title>
+    <link>https://nicholasficara.dev/blog/blog/c/</link>
+    <description>Recent content in C on Nick&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2021-Present, Nicholas Ficara</copyright>
+    <lastBuildDate>Wed, 28 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nicholasficara.dev/blog/blog/c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fractals as a Live Wallpaper</title>
+      <link>https://nicholasficara.dev/blog/fractals-as-a-live-wallpaper/</link>
+      <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/fractals-as-a-live-wallpaper/</guid>
+      <description>I have always loved fractals. Something about the Mandelbrot set is so captivating to me. I&amp;rsquo;ve always wanted to write my own implementation of it and I&amp;rsquo;ve always wanted to use it as my wallpaper, so I decided why not combine both! I wrote a live wallpaper program for Linux that will render the Mandelbrot set to your X root window (desktop). It was a lot of fun to implement, and very rewarding.</description>
+    </item>
+    
+  </channel>
+</rss>

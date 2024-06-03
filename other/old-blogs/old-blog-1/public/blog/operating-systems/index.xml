@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Operating Systems on Nick&#39;s Blog</title>
+    <link>https://nicholasficara.dev/blog/blog/operating-systems/</link>
+    <description>Recent content in Operating Systems on Nick&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2021-Present, Nicholas Ficara</copyright>
+    <lastBuildDate>Mon, 10 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nicholasficara.dev/blog/blog/operating-systems/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Is Arch Linux a Good OS for School and Everyday Use?</title>
+      <link>https://nicholasficara.dev/blog/is-arch-linux-a-good-os-for-school-and-everyday-use/</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/is-arch-linux-a-good-os-for-school-and-everyday-use/</guid>
+      <description>5 things to look for in an operating system for school/productivity   Reliability
+  Performance
+  Efficiency
+  Compatibility
+  Future proof
+  Arch Linux pros and cons? Pros:   pacman/AUR
+ If pacman doesn&amp;rsquo;t have the package you are looking for, the AUR usually does. It&amp;rsquo;s insanely complete. I personally have 1600 packages installed, and I only had to install 2 programs that weren&amp;rsquo;t provided in the AUR.</description>
+    </item>
+    
+  </channel>
+</rss>

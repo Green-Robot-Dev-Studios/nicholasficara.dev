@@ -1,0 +1,70 @@
+{
+    "cells": [
+        {
+            "attrs": {
+                ".label": {
+                    "text": "PC"
+                }
+            },
+            "type": "devs.Model",
+            "inPorts": [
+                "Set Value [64bits]"
+            ],
+            "outPorts": [
+                "Out [64bits]"
+            ],
+            "size": {
+                "width": 125,
+                "height": 200
+            },
+            "position": {
+                "x": 100,
+                "y": 100
+            }
+        },
+        {
+            "attrs": {
+                ".label": {
+                    "text": "Memory"
+                }
+            },
+            "type": "devs.Model",
+            "inPorts": [
+                "Read Address [64bits]"
+            ],
+            "outPorts": [
+                "Instruction [32bits]"
+            ],
+            "size": {
+                "width": 125,
+                "height": 200
+            },
+            "position": {
+                "x": 100,
+                "y": 100
+            }
+        },
+        {
+            "attrs": {
+                ".label": {
+                    "text": "Registers"
+                }
+            },
+            "type": "devs.Model",
+            "inPorts": [
+                "Read Register 1 [64bits]"
+            ],
+            "outPorts": [
+                "Instruction [32bits]"
+            ],
+            "size": {
+                "width": 125,
+                "height": 200
+            },
+            "position": {
+                "x": 100,
+                "y": 100
+            }
+        }
+    ]
+}

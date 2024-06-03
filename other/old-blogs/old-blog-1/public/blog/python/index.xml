@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Nick&#39;s Blog</title>
+    <link>https://nicholasficara.dev/blog/blog/python/</link>
+    <description>Recent content in Python on Nick&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2021-Present, Nicholas Ficara</copyright>
+    <lastBuildDate>Fri, 03 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nicholasficara.dev/blog/blog/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Minecraft Pic</title>
+      <link>https://nicholasficara.dev/blog/minecraft-pic/</link>
+      <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/minecraft-pic/</guid>
+      <description>I made a python script that takes your webcam&amp;rsquo;s pixels, converts them to Minecraft blocks, then passes them to a datapack that places the blocks in your Minecraft&amp;rsquo;s world! Here is an example:
+It maps each pixel color in the webcam to a concrete color in Minecraft. It was quite fun to build and a nice weekend project!</description>
+    </item>
+    
+  </channel>
+</rss>

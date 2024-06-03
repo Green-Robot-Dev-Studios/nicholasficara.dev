@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flutter on Nick&#39;s Blog</title>
+    <link>https://nicholasficara.dev/blog/blog/flutter/</link>
+    <description>Recent content in Flutter on Nick&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2021-Present, Nicholas Ficara</copyright>
+    <lastBuildDate>Sat, 02 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nicholasficara.dev/blog/blog/flutter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scroll n Stroll</title>
+      <link>https://nicholasficara.dev/blog/scroll-n-stroll/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/scroll-n-stroll/</guid>
+      <description>People are spending way too much time on their phones right now all cooped up in their houses. I decided to tackle this problem by building Scroll n Stroll. An app, as the name suggests, where you need to amass steps in order to increase your screen time allowance. The app is not yet published, but I learned a lot while building it. I learned flutter while building it. I had a great experience using flutter.</description>
+    </item>
+    
+  </channel>
+</rss>

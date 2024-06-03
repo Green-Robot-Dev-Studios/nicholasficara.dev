@@ -1,0 +1,87 @@
+import Quiz from '../../../../src/components/Quiz.js'
+
+# Transformational Proofs
+
+- `comm_assoc`
+    - Associativity of operations. Think $P \land Q$ is the same as $Q \land P$
+- `distr`
+    - Distributivity of operations. Think $P \land (Q \lor R)$ is the same as $(P \land Q) \lor (P \land R)$
+- `equiv`
+    - Equivalence. Think $P ⇔ Q ↔ (P ⇒ Q) ∧ (Q ⇒ P)$
+- `dm`
+    - De Morgan's Law. Think $¬(P \lor Q) ↔ ¬P ∧ ¬Q$
+- `simp1`
+    - Simplification. Think about simplifying a **boolean valuation**, so something like $P ∧ true ↔ P$
+- `simp2`
+    - Simplication of **two (2)** variables. Think $P \lor (P ∧ Q) ↔ P$
+- `idemp`
+    - Idempotency. Think simplification of **the same variable**. $P \lor P ↔ P$
+- `neg`
+    - Negation. Think $¬(¬P) ↔ P$
+- `contr`
+    - Contradiction. Think $P ∧ ¬P ↔ false$
+- `lem`
+    - Law of Excluded Middle. Think $P \lor ¬P ↔ true$
+- `impl`
+    - Implication. Think $P ⇒ Q ↔ ¬P \lor Q$
+- `contrapos`
+    - Contrapositive. Think $P ⇒ Q ↔ ¬Q ⇒ ¬P$
+
+:::note
+When the quesetion says to check if two formulas are logically equivalent, use the `<->` or $↔$ symbol between the formulas.
+:::
+
+General format:
+```text
+equation_1 ↔ equation_2
+
+↔ eqation_1
+↔ modified_equation_1 by x
+```
+
+<Quiz question="$P ∧ Q ↔ Q ∧ P$" answers={[
+    "comm_assoc",
+    "distr",
+    "equiv",
+    "simp2"
+]}/>
+
+## CNF & DNF
+
+- CNF: Conjunctive Normal Form
+    - A formula is in CNF if it is a conjunction of disjunctions of literals
+- DNF: Disjunctive Normal Form
+    - A formula is in DNF if it is a disjunction of conjunctions of literals
+- `false` and `true` are both CNF & DNF
+- If `false` or `true` appear elsewhere in a formula, it is neither CNF nor DNF
+
+:::note
+A literal is a variable or its negation.
+:::
+
+:::caution
+A formula can be both CNF and DNF. Check for both definitions. See the quiz below.
+:::
+
+<Quiz question="Is this a CNF, DNF, both, or neither? $\\$ $\text{false}$" answers={[
+    "both",
+    "CNF",
+    "DNF",
+    "neither"
+]} why="Rule: only formulas consisting of `true` or `false` are both CNF AND DNF." />
+
+<Quiz question="Is this a CNF, DNF, both, or neither? $\\$ $a \lor \neg b \lor \text{true}$" answers={[
+    "neither",
+    "CNF",
+    "DNF",
+    "both",
+]} why="Rule: only formulas consisting of `true` or `false` are both CNF AND DNF." />
+
+<Quiz question="Is this a CNF, DNF, both, or neither? $\\$ $a \land \neg b \land c$" answers={[
+    "both",
+    "neither",
+    "CNF",
+    "DNF"
+]} why="Obviously it's CNF, but it's also DNF because if you consider the entire equation as one, it's like a disjunction with nothing." />
+
+

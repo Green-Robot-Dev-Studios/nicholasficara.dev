@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nick&#39;s Blog</title>
+    <link>https://nicholasficara.dev/blog/</link>
+    <description>Recent content on Nick&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2021-Present, Nicholas Ficara</copyright>
+    <lastBuildDate>Sat, 03 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nicholasficara.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I used Google Docs as a CMS for a Blog Style Website</title>
+      <link>https://nicholasficara.dev/blog/how-i-used-google-docs-as-a-cms-for-a-blog-style-website/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/how-i-used-google-docs-as-a-cms-for-a-blog-style-website/</guid>
+      <description>I was assigned the task of building a newspaper/blog website for my school. The current website is built with Wix and is not responsive at all. It&amp;rsquo;s also a genuine eyesore to look at.
+I decided I needed a CMS to get the rest of the team to be able to write content. I decided I wanted something universal and simple like a folder filled with markdown or html files. I didn&amp;rsquo;t want to force the writers to use markdown or html, however, the main thing I wanted to avoid is having to manually copy paste content from Google Docs into a markdown/html file and then re-format everything.</description>
+    </item>
+    
+    <item>
+      <title>Are Hackathons Really Worth It?</title>
+      <link>https://nicholasficara.dev/blog/are-hackathons-really-worth-it/</link>
+      <pubDate>Thu, 17 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/are-hackathons-really-worth-it/</guid>
+      <description>Introduction I enjoy hackathons. They force us to complete a project and present it no matter what state it&amp;rsquo;s in. This is the main reason I participate. It forces me to just code and whatever I get done I must present. It contrasts my normal approach to projects, which is to polish to no end and eventually lose interest in the project.
+Online Hackathons In the past year, I&amp;rsquo;ve been participating in online hackathons.</description>
+    </item>
+    
+    <item>
+      <title>Is Arch Linux a Good OS for School and Everyday Use?</title>
+      <link>https://nicholasficara.dev/blog/is-arch-linux-a-good-os-for-school-and-everyday-use/</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/is-arch-linux-a-good-os-for-school-and-everyday-use/</guid>
+      <description>5 things to look for in an operating system for school/productivity   Reliability
+  Performance
+  Efficiency
+  Compatibility
+  Future proof
+  Arch Linux pros and cons? Pros:   pacman/AUR
+ If pacman doesn&amp;rsquo;t have the package you are looking for, the AUR usually does. It&amp;rsquo;s insanely complete. I personally have 1600 packages installed, and I only had to install 2 programs that weren&amp;rsquo;t provided in the AUR.</description>
+    </item>
+    
+    <item>
+      <title>Fractals as a Live Wallpaper</title>
+      <link>https://nicholasficara.dev/blog/fractals-as-a-live-wallpaper/</link>
+      <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/fractals-as-a-live-wallpaper/</guid>
+      <description>I have always loved fractals. Something about the Mandelbrot set is so captivating to me. I&amp;rsquo;ve always wanted to write my own implementation of it and I&amp;rsquo;ve always wanted to use it as my wallpaper, so I decided why not combine both! I wrote a live wallpaper program for Linux that will render the Mandelbrot set to your X root window (desktop). It was a lot of fun to implement, and very rewarding.</description>
+    </item>
+    
+    <item>
+      <title>My experience using Svelte</title>
+      <link>https://nicholasficara.dev/blog/my-experience-using-svelte/</link>
+      <pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/my-experience-using-svelte/</guid>
+      <description>A few weeks ago I started building a web app to anonymously connect students with trained peers. The project needed to be on a small budget (aka free). Most of the stuff I build is on a similar budget, and by that I mean the exact same budget. This is good in some ways. It teaches me to be resourceful and use the free tools at my disposal and work around the old school way of hosting a MySQL server (which I have done 😢).</description>
+    </item>
+    
+    <item>
+      <title>Why Build a Gameboy Emulator</title>
+      <link>https://nicholasficara.dev/blog/why-build-a-gameboy-emulator/</link>
+      <pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/why-build-a-gameboy-emulator/</guid>
+      <description>I think everyone should build an emulator and some point or another.
+I was recently playing some Pokemon Red on the original Gameboy. Something about the game captivates me. A large portion of this appeal comes from the emulator. I find it fascinating how we can now run an emulator on almost any platform. I decided I wanted to build and emulator so that I could have a full understanding of the Gameboy.</description>
+    </item>
+    
+    <item>
+      <title>Drawing Pictures in Desmos</title>
+      <link>https://nicholasficara.dev/blog/drawing-pictures-in-desmos/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/drawing-pictures-in-desmos/</guid>
+      <description>I was messing around with various APIs and I stumbled across a feature in Desmos that allows you to place a colored pixel anywhere on the graph. I instantly wanted to set up a script that would draw out an image.
+I decided to start small and make an apple. Here is the original image (low res for performance):
+Now I made each pixel of that apple a point on desmos:</description>
+    </item>
+    
+    <item>
+      <title>Making YouTube Videos Completely Automatically</title>
+      <link>https://nicholasficara.dev/blog/making-youtube-videos-completely-automatically/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/making-youtube-videos-completely-automatically/</guid>
+      <description>I came across this type of channel on YouTube called Reddit readers. They use a text to speech software or a human voice over to read Reddit posts. There are plenty of them if you search up reddit reader. I realized that this is probably possible to do without any human interaction whatsoever.
+What I Built This was the final product: https://youtu.be/8QHTimxYGes. I simply put in a Reddit link and it did the rest.</description>
+    </item>
+    
+    <item>
+      <title>Minecraft Pic</title>
+      <link>https://nicholasficara.dev/blog/minecraft-pic/</link>
+      <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/minecraft-pic/</guid>
+      <description>I made a python script that takes your webcam&amp;rsquo;s pixels, converts them to Minecraft blocks, then passes them to a datapack that places the blocks in your Minecraft&amp;rsquo;s world! Here is an example:
+It maps each pixel color in the webcam to a concrete color in Minecraft. It was quite fun to build and a nice weekend project!</description>
+    </item>
+    
+    <item>
+      <title>Scroll n Stroll</title>
+      <link>https://nicholasficara.dev/blog/scroll-n-stroll/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/scroll-n-stroll/</guid>
+      <description>People are spending way too much time on their phones right now all cooped up in their houses. I decided to tackle this problem by building Scroll n Stroll. An app, as the name suggests, where you need to amass steps in order to increase your screen time allowance. The app is not yet published, but I learned a lot while building it. I learned flutter while building it. I had a great experience using flutter.</description>
+    </item>
+    
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>https://nicholasficara.dev/blog/markdown-syntax-guide/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/markdown-syntax-guide/</guid>
+      <description>&lt;p&gt;For a quick cheatsheet, check out &lt;a href=&#34;https://simplemde.com/markdown-guide&#34;&gt;https://simplemde.com/markdown-guide&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>p5js as a Learning Tool</title>
+      <link>https://nicholasficara.dev/blog/p5js-as-a-learning-tool/</link>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/p5js-as-a-learning-tool/</guid>
+      <description>p5js is a graphics library for javascript that is a port of the Processing language. p5js is incredibly simple. It&amp;rsquo;s about as close to English as you can get. For example, take a look at the reference: https://p5js.org/reference/. You don&amp;rsquo;t even need to read the description of each function to know what it does. It&amp;rsquo;s dead simple. This is not great for performance, and I still stick to using the canvas API itself for most large scale projects, but for simple simulations it&amp;rsquo;s very powerful.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://nicholasficara.dev/blog/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/about/</guid>
+      <description>Bear Website: https://bearblog.dev
+There is a website obesity crisis. Bloated websites are full of scripts, ads, and trackers slowing your readers down every time they try to read your well-crafted content.
+Bear is all you need to build a fantastic and optimized site or blog. It works perfectly on any viewing device. All you need to focus on is writing good content.
+Bear makes it simple to publish content online and grow an audience while keeping pages tiny, fast, and optimized for search engines.</description>
+    </item>
+    
+  </channel>
+</rss>

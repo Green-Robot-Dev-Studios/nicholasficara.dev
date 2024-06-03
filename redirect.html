@@ -1,0 +1,40 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            let shortcuts = {
+                "dash": "http://10.0.0.152/",
+                "read": "http://10.0.0.152:8001/test/libraries",
+                "flix": "http://10.0.0.151:8096/web/index.html#!/home.html",
+                "mel": "https://www.linkedin.com/in/nicholasficara/",
+                "megh": "https://github.com/Green-Robot-Dev-Studios",
+                "tune": "https://yousician.com/guitartuna",
+                "climb": "https://warrior.uwaterloo.ca/Program/GetProgramDetails?courseId=96652727-301e-4456-b19c-5ddac9ff3ba1",
+                "drive": "https://uofwaterloo-my.sharepoint.com/",
+                "cyberchef": "https://gchq.github.io/CyberChef/",
+                "drill": "https://www.custompartnet.com/drill-size-chart",
+                "lcwo": "https://lcwo.net/",
+                "ariss": "https://ariss-sstv.blogspot.com/",
+                "sdr": "http://websdr.org/",
+                "questions": "http://www.catb.org/~esr/faqs/smart-questions.html",
+                "colemak": "https://gnusenpai.net/colemakclub/",
+                "slack-emoji": "https://slackmojis.com/",
+                "unicode": "https://unicode.org/emoji/charts/full-emoji-list.html",
+                "grice": "https://www.sas.upenn.edu/~haroldfs/dravling/grice.html",
+                "watches": "https://ciechanow.ski/",
+                "mini": "https://www.nytimes.com/crosswords/game/mini",
+            }
+            const searchParams = new URLSearchParams(window.location.search);
+            if (shortcuts[searchParams.get("search")]) {
+                window.location.href = shortcuts[searchParams.get("search")]
+            } else {
+                document.body.innerHTML = 
+                    "<table>" +
+                        (Object.entries(shortcuts).map(([k,v]) => 
+                            `<tr> <td><b>${k}</b></td> <td><a style="color: black" href='${v}'>${v}</a></td> </tr>`
+                        ).join("")) +
+                    "</table>"
+            }
+        </script>
+    </body>
+</html>

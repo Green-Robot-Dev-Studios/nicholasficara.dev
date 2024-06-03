@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PIL on Nick&#39;s Blog</title>
+    <link>https://nicholasficara.dev/blog/blog/pil/</link>
+    <description>Recent content in PIL on Nick&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2021-Present, Nicholas Ficara</copyright>
+    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://nicholasficara.dev/blog/blog/pil/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Making YouTube Videos Completely Automatically</title>
+      <link>https://nicholasficara.dev/blog/making-youtube-videos-completely-automatically/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/making-youtube-videos-completely-automatically/</guid>
+      <description>I came across this type of channel on YouTube called Reddit readers. They use a text to speech software or a human voice over to read Reddit posts. There are plenty of them if you search up reddit reader. I realized that this is probably possible to do without any human interaction whatsoever.
+What I Built This was the final product: https://youtu.be/8QHTimxYGes. I simply put in a Reddit link and it did the rest.</description>
+    </item>
+    
+  </channel>
+</rss>

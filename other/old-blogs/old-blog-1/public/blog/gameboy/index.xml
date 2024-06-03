@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gameboy on Nick&#39;s Blog</title>
+    <link>https://nicholasficara.dev/blog/blog/gameboy/</link>
+    <description>Recent content in Gameboy on Nick&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2021-Present, Nicholas Ficara</copyright>
+    <lastBuildDate>Tue, 20 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nicholasficara.dev/blog/blog/gameboy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why Build a Gameboy Emulator</title>
+      <link>https://nicholasficara.dev/blog/why-build-a-gameboy-emulator/</link>
+      <pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/why-build-a-gameboy-emulator/</guid>
+      <description>I think everyone should build an emulator and some point or another.
+I was recently playing some Pokemon Red on the original Gameboy. Something about the game captivates me. A large portion of this appeal comes from the emulator. I find it fascinating how we can now run an emulator on almost any platform. I decided I wanted to build and emulator so that I could have a full understanding of the Gameboy.</description>
+    </item>
+    
+  </channel>
+</rss>

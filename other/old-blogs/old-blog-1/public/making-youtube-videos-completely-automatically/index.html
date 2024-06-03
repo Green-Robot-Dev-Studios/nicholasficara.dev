@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://nicholasficara.dev/blog/images/favicon.png" />
+<title>Making YouTube Videos Completely Automatically | Nick&#39;s Blog</title>
+<meta name="title" content="Making YouTube Videos Completely Automatically" />
+<meta name="description" content="I came across this type of channel on YouTube called Reddit readers. They use a text to speech software or a human voice over to read Reddit posts. There are plenty of them if you search up reddit reader. I realized that this is probably possible to do without any human interaction whatsoever.
+What I Built This was the final product: https://youtu.be/8QHTimxYGes. I simply put in a Reddit link and it did the rest." />
+<meta name="keywords" content="YouTube,PIL,Automation," />
+
+
+<meta property="og:title" content="Making YouTube Videos Completely Automatically" />
+<meta property="og:description" content="I came across this type of channel on YouTube called Reddit readers. They use a text to speech software or a human voice over to read Reddit posts. There are plenty of them if you search up reddit reader. I realized that this is probably possible to do without any human interaction whatsoever.
+What I Built This was the final product: https://youtu.be/8QHTimxYGes. I simply put in a Reddit link and it did the rest." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nicholasficara.dev/blog/making-youtube-videos-completely-automatically/" /><meta property="og:image" content="https://nicholasficara.dev/blog/images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-09-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-09T00:00:00+00:00" /><meta property="og:site_name" content="Nick&#39;s Blog" />
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://nicholasficara.dev/blog/images/share.png"/>
+
+<meta name="twitter:title" content="Making YouTube Videos Completely Automatically"/>
+<meta name="twitter:description" content="I came across this type of channel on YouTube called Reddit readers. They use a text to speech software or a human voice over to read Reddit posts. There are plenty of them if you search up reddit reader. I realized that this is probably possible to do without any human interaction whatsoever.
+What I Built This was the final product: https://youtu.be/8QHTimxYGes. I simply put in a Reddit link and it did the rest."/>
+
+
+
+<meta itemprop="name" content="Making YouTube Videos Completely Automatically">
+<meta itemprop="description" content="I came across this type of channel on YouTube called Reddit readers. They use a text to speech software or a human voice over to read Reddit posts. There are plenty of them if you search up reddit reader. I realized that this is probably possible to do without any human interaction whatsoever.
+What I Built This was the final product: https://youtu.be/8QHTimxYGes. I simply put in a Reddit link and it did the rest."><meta itemprop="datePublished" content="2020-09-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="487"><meta itemprop="image" content="https://nicholasficara.dev/blog/images/share.png"/>
+<meta itemprop="keywords" content="YouTube,PIL,Automation," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/blog/" class="title">
+  <h2>Nick&#39;s Blog</h2>
+</a>
+<nav><a href="/blog/">Home</a>
+
+<a href="/blog/about/">About Me</a>
+
+
+<a href="/blog/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Making YouTube Videos Completely Automatically</h1>
+<p>
+  <i>
+    <time datetime='2020-09-09' pubdate>
+      09 Sep, 2020
+    </time>
+  </i>
+</p>
+
+<content>
+  <p>I came across this type of channel on YouTube called Reddit readers. They use a text to speech software or a human voice over to read Reddit posts. There are plenty of them if you search up <code>reddit reader</code>. I realized that this is probably possible to do without any human interaction whatsoever.</p>
+<h2 id="what-i-built">What I Built</h2>
+<p>This was the final product: <a href="https://youtu.be/8QHTimxYGes">https://youtu.be/8QHTimxYGes</a>. I simply put in a Reddit link and it did the rest. With a bit more polish like an intro, it could be really good. I decided against going all the way because there are already enough of these Reddit readers and we <em>really</em> don&rsquo;t need another one.</p>
+<h2 id="how-i-built-it">How I Built It</h2>
+<p>This was a surprisingly easy project. Here is how it went:</p>
+<ol>
+<li>Use the Reddit api to get the content and title of the given post.</li>
+<li>Separate the post into chunks of n words.</li>
+<li>Pass each chunk through a text to speech algorithm.</li>
+<li>Generate a png image with the text on it using python imaging library.</li>
+<li>Use librosa to piece together the video with the correct timings.</li>
+<li>Export the video.</li>
+<li>Post to YouTube (I didn&rsquo;t do this part)</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>I enjoyed building this, and it was quite satisfying to send to my friends. This could totally replace the Reddit readers that use TTS software. It&rsquo;s not that complicated and could be expanded to have a dynamic image in the background like a GIF file.</p>
+<p>The code is not on GitHub, mainly because there are a lot of dependencies, and it&rsquo;s not the best quality code, but if someone wants to use it or build on it, please go right ahead!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> praw
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> PIL <span style="color:#f92672">import</span> Image, ImageDraw, ImageFont
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> gtts <span style="color:#f92672">import</span> gTTS
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> cv2
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> mutagen.mp3 <span style="color:#f92672">import</span> MP3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> moviepy.editor <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> textwrap
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> textwrap <span style="color:#f92672">import</span> wrap
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> tts.sapi
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> librosa
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>voice <span style="color:#f92672">=</span> tts<span style="color:#f92672">.</span>sapi<span style="color:#f92672">.</span>Sapi()
+</span></span><span style="display:flex;"><span>reddit <span style="color:#f92672">=</span> praw<span style="color:#f92672">.</span>Reddit(client_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, client_secret<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, user_agent<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span>hot_posts <span style="color:#f92672">=</span> reddit<span style="color:#f92672">.</span>subreddit(<span style="color:#e6db74">&#39;EntitledParents&#39;</span>)<span style="color:#f92672">.</span>hot(limit<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>fetched_posts <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> post <span style="color:#f92672">in</span> hot_posts:
+</span></span><span style="display:flex;"><span>    fetched_posts<span style="color:#f92672">.</span>append(post<span style="color:#f92672">.</span>selftext)
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>to_say <span style="color:#f92672">=</span> fetched_posts[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>to_say <span style="color:#f92672">=</span> wrap(fetched_posts[<span style="color:#ae81ff">2</span>], <span style="color:#ae81ff">420</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fnt <span style="color:#f92672">=</span> ImageFont<span style="color:#f92672">.</span>truetype(<span style="color:#e6db74">&#39;arial.ttf&#39;</span>, <span style="color:#ae81ff">50</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>chunk_num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> chunk <span style="color:#f92672">in</span> to_say:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> chunk <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    img <span style="color:#f92672">=</span> Image<span style="color:#f92672">.</span>new(<span style="color:#e6db74">&#39;RGBA&#39;</span>, (<span style="color:#ae81ff">1920</span>, <span style="color:#ae81ff">1080</span>), color <span style="color:#f92672">=</span> (<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>    d <span style="color:#f92672">=</span> ImageDraw<span style="color:#f92672">.</span>Draw(img)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    chunk_wrapped <span style="color:#f92672">=</span> textwrap<span style="color:#f92672">.</span>wrap(chunk, width<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    current_h, pad <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> chunk_wrapped:
+</span></span><span style="display:flex;"><span>        w, h <span style="color:#f92672">=</span> d<span style="color:#f92672">.</span>textsize(line, font<span style="color:#f92672">=</span>fnt)
+</span></span><span style="display:flex;"><span>        d<span style="color:#f92672">.</span>text(((<span style="color:#ae81ff">1920</span> <span style="color:#f92672">-</span> w) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, current_h), line, font<span style="color:#f92672">=</span>fnt)
+</span></span><span style="display:flex;"><span>        current_h <span style="color:#f92672">+=</span> h <span style="color:#f92672">+</span> pad
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    bg <span style="color:#f92672">=</span> Image<span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#34;bg.png&#34;</span>)
+</span></span><span style="display:flex;"><span>    bg<span style="color:#f92672">.</span>paste(img, (<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>), img)
+</span></span><span style="display:flex;"><span>    bg<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#39;images/&#39;</span> <span style="color:#f92672">+</span> str(chunk_num) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.png&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    voice<span style="color:#f92672">.</span>create_recording(str(chunk_num) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.wav&#39;</span>, chunk)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    chunk_num <span style="color:#f92672">=</span> chunk_num <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>voice<span style="color:#f92672">.</span>create_recording(<span style="color:#e6db74">&#39;full.wav&#39;</span>, fetched_posts[<span style="color:#ae81ff">2</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>image_folder <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;images&#39;</span>
+</span></span><span style="display:flex;"><span>video_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;video.mp4&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>images <span style="color:#f92672">=</span> [img <span style="color:#66d9ef">for</span> img <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>listdir(image_folder) <span style="color:#66d9ef">if</span> img<span style="color:#f92672">.</span>endswith(<span style="color:#e6db74">&#34;.png&#34;</span>)]
+</span></span><span style="display:flex;"><span>frame <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>imread(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(image_folder, images[<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>height, width, layers <span style="color:#f92672">=</span> frame<span style="color:#f92672">.</span>shape
+</span></span><span style="display:flex;"><span>fourcc <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>VideoWriter_fourcc(<span style="color:#e6db74">&#39;F&#39;</span>, <span style="color:#e6db74">&#39;M&#39;</span>, <span style="color:#e6db74">&#39;P&#39;</span>, <span style="color:#e6db74">&#39;4&#39;</span>)
+</span></span><span style="display:flex;"><span>video <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>VideoWriter(video_name, fourcc, <span style="color:#ae81ff">24</span>, (width,height))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> image <span style="color:#f92672">in</span> images:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(int(librosa<span style="color:#f92672">.</span>get_duration(filename<span style="color:#f92672">=</span>image<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;.&#34;</span>)[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.wav&#39;</span>))<span style="color:#f92672">*</span><span style="color:#ae81ff">24</span>):
+</span></span><span style="display:flex;"><span>        video<span style="color:#f92672">.</span>write(cv2<span style="color:#f92672">.</span>imread(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(image_folder, image)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cv2<span style="color:#f92672">.</span>destroyAllWindows()
+</span></span><span style="display:flex;"><span>video<span style="color:#f92672">.</span>release()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Final Export&#34;</span>)
+</span></span><span style="display:flex;"><span>movie <span style="color:#f92672">=</span> VideoFileClip(<span style="color:#e6db74">&#34;video.mp4&#34;</span>)
+</span></span><span style="display:flex;"><span>movie<span style="color:#f92672">.</span>write_videofile(<span style="color:#e6db74">&#34;finished_video.mp4&#34;</span>, audio<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;full.wav&#34;</span>, threads <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>, logger <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>)
+</span></span></code></pre></div>
+</content>
+<p>
+  
+  <a href="https://nicholasficara.dev/blog/blog/youtube/">#YouTube</a>
+  
+  <a href="https://nicholasficara.dev/blog/blog/pil/">#PIL</a>
+  
+  <a href="https://nicholasficara.dev/blog/blog/automation/">#Automation</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+import Quiz from '../../../../src/components/Quiz.js'
+
+# Propositional Logic
+
+## Syntax
+
+Two constants:
+
+-   true, false
+
+Connectives in order:
+
+| Symbol  | Name        |
+| ------- | ----------- |
+| $\neg$  | Negation    |
+| $\land$ | Conjunction |
+| $\lor$  | Disjunction |
+| $\Rarr$ | Implication |
+| $\Harr$ | Equivalence |
+
+Connectives are right associative. (i.e. $A \land B \land C$ is $A \land (B \land C)$)
+
+## English translation
+
+| Symbol      | English                                                                                                                                                              |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| $\neg P$    | not, $P$ does not hold, <br/> it is not the case that $P$                                                                                                            |
+| $P \land Q$ | $P$ and $Q$, <br/> $P$ but $Q$, <br/> $P$ while $Q$, <br/> $P$ despite $Q$, <br/> $P$ yet $Q$, <br/> $P$ although $Q$, <br/> not only $P$ but $Q$                    |
+| $P \lor Q$  | $P$ or $Q$, <br/> $P$ or $Q$ or both, <br/> $P$ and/or $Q$, <br/> $P$ unless $Q$                                                                                     |
+| $P \Rarr Q$ | if $P$ then $Q$, <br/> $Q$ if $P$, <br/> $P$ only if $Q$, <br/> $Q$ when $P$, <br/> $P$ is sufficient for $Q$, <br/> $Q$ is necessary for $P$, <br/> $P$ implies $Q$ |
+| $P \Harr Q$ | $P$ if and only if $Q$, <br/> $P$ is necessary and sufficient for $Q$, <br/> $P$ exactly if $Q$, <br/> $P$ is equivalent to $Q$                                                                                                                                                                     |
+
+<Quiz 
+    question="Formalize: If I go to tims but only get a doughnut then I am safe from the rats. (g=I go to tims, d=get a doughnut, s=I am safe)" 
+    answers={[
+        "$(g \\land d) \\Rarr s$",
+        "$(g \\land d) \\Rarr \\neg s$",
+        "$(g \\land \\neg d) \\Rarr s$",
+        "$(g \\land \\neg d) \\Rarr \\neg s$",
+    ]}
+/>
+
+## Semantics
+
+:::note
+The characters `[` and `]` represent "the meaning of" whatever is within them.
+:::
+
+Here are the lines required if showing a boolean valuation.
+```
+[p] = T
+[q] = T
+
+q => p
+[q] IMP [p]
+T IMP T
+T
+```
+
+:::note
+[false] = F, [true] = T <br/>
+[¬P] = **NOT (**[P]**)** <br/>
+[P ∧ Q] = [P] **AND** [Q] <br/>
+[P $\lor$ Q] = [P] **OR** [Q] <br/>
+[P ⇒ Q] = [P] **IMP** [Q] <br/>
+[P ⇔ Q] = [P] **IFF** [Q] <br/>
+:::
+
+### Satisfiability, tautologies, contradictions, contingent formulas, consistency
+- A formula is satisfiable if there is an assignment of truth values to the propositional variables that makes the formula true.
+- A formula is a tautology/valid if it is true under all assignments of values to the propositional variables.
+    - Written $\vDash Q$
+    - $P_1, P_2, ..., P_n \vDash Q$ can be thought of as $P_1 ∧ P_2 ∧ ... ∧ P_n \vDash Q$ or $\vDash P_1 ∧ P_2 ∧ ... ∧ P_n ⇒ Q$
+- A formula is a contradiction if it is false under all assignments of values to the propositional variables.
+- A formula is contingent if it is neither a tautology nor a contradiction.
+- A set of formula is consistent if there is an assignment of truth values to the propositional variables that makes all the formulas true.
+
+:::tip
+If a formula is **contingent**, then it is **satisfiable**.
+
+If a formula is a **tautology**, then it is **satisfiable**.
+
+Include all matching definitions in the test.
+:::
+
+- To check consistency: 
+    - check if the formulas are satisfiable
+    - check if there is a boolean valuation that maps each formula to T
+    - check if there is a boolean valuation that maps the conjunction of each formula to T
+    - the conjunction of formulas is not a contradiction
+    - (just make a table)
+

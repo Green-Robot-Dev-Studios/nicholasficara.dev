@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://nicholasficara.dev/blog/images/favicon.png" />
+<title>Is Arch Linux a Good OS for School and Everyday Use? | Nick&#39;s Blog</title>
+<meta name="title" content="Is Arch Linux a Good OS for School and Everyday Use?" />
+<meta name="description" content="5 things to look for in an operating system for school/productivity   Reliability
+  Performance
+  Efficiency
+  Compatibility
+  Future proof
+  Arch Linux pros and cons? Pros:   pacman/AUR
+ If pacman doesn&rsquo;t have the package you are looking for, the AUR usually does. It&rsquo;s insanely complete. I personally have 1600 packages installed, and I only had to install 2 programs that weren&rsquo;t provided in the AUR." />
+<meta name="keywords" content="Arch Linux,Operating Systems," />
+
+
+<meta property="og:title" content="Is Arch Linux a Good OS for School and Everyday Use?" />
+<meta property="og:description" content="5 things to look for in an operating system for school/productivity   Reliability
+  Performance
+  Efficiency
+  Compatibility
+  Future proof
+  Arch Linux pros and cons? Pros:   pacman/AUR
+ If pacman doesn&rsquo;t have the package you are looking for, the AUR usually does. It&rsquo;s insanely complete. I personally have 1600 packages installed, and I only had to install 2 programs that weren&rsquo;t provided in the AUR." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nicholasficara.dev/blog/is-arch-linux-a-good-os-for-school-and-everyday-use/" /><meta property="og:image" content="https://nicholasficara.dev/blog/images/share.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-05-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-10T00:00:00+00:00" /><meta property="og:site_name" content="Nick&#39;s Blog" />
+
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://nicholasficara.dev/blog/images/share.png"/>
+
+<meta name="twitter:title" content="Is Arch Linux a Good OS for School and Everyday Use?"/>
+<meta name="twitter:description" content="5 things to look for in an operating system for school/productivity   Reliability
+  Performance
+  Efficiency
+  Compatibility
+  Future proof
+  Arch Linux pros and cons? Pros:   pacman/AUR
+ If pacman doesn&rsquo;t have the package you are looking for, the AUR usually does. It&rsquo;s insanely complete. I personally have 1600 packages installed, and I only had to install 2 programs that weren&rsquo;t provided in the AUR."/>
+
+
+
+<meta itemprop="name" content="Is Arch Linux a Good OS for School and Everyday Use?">
+<meta itemprop="description" content="5 things to look for in an operating system for school/productivity   Reliability
+  Performance
+  Efficiency
+  Compatibility
+  Future proof
+  Arch Linux pros and cons? Pros:   pacman/AUR
+ If pacman doesn&rsquo;t have the package you are looking for, the AUR usually does. It&rsquo;s insanely complete. I personally have 1600 packages installed, and I only had to install 2 programs that weren&rsquo;t provided in the AUR."><meta itemprop="datePublished" content="2021-05-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-05-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="507"><meta itemprop="image" content="https://nicholasficara.dev/blog/images/share.png"/>
+<meta itemprop="keywords" content="Arch Linux,Operating Systems," />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  body {
+    font-family: Verdana, sans-serif;
+    margin: auto;
+    padding: 20px;
+    max-width: 720px;
+    text-align: left;
+    background-color: #fff;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    color: #222;
+  }
+
+  a {
+    color: #3273dc;
+     
+  }
+
+  .title {
+    text-decoration: none;
+    border: 0;
+  }
+
+  .title span {
+    font-weight: 400;
+  }
+
+  nav a {
+    margin-right: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  content {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    padding: 2px 5px;
+    background-color: #f2f2f2;
+  }
+
+  pre code {
+    color: #222;
+    display: block;
+    padding: 20px;
+    white-space: pre-wrap;
+    font-size: 14px;
+  }
+
+  div.highlight pre {
+    background-color: initial;
+    color: initial;
+  }
+
+  div.highlight code {
+    background-color: unset;
+    color: unset;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: #222;
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .helptext {
+    color: #777;
+    font-size: small;
+  }
+
+  .errorlist {
+    color: #eba613;
+    font-size: small;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: #8b6fcb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #333;
+      color: #ddd;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: #eee;
+    }
+
+    a {
+      color: #8cc2dd;
+    }
+
+    code {
+      background-color: #777;
+    }
+
+    pre code {
+      color: #ddd;
+    }
+
+    blockquote {
+      color: #ccc;
+    }
+
+    textarea,
+    input {
+      background-color: #252525;
+      color: #ddd;
+    }
+
+    .helptext {
+      color: #aaa;
+    }
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/blog/" class="title">
+  <h2>Nick&#39;s Blog</h2>
+</a>
+<nav><a href="/blog/">Home</a>
+
+<a href="/blog/about/">About Me</a>
+
+
+<a href="/blog/blog">Blog</a>
+
+</nav>
+</header>
+  <main>
+
+<h1>Is Arch Linux a Good OS for School and Everyday Use?</h1>
+<p>
+  <i>
+    <time datetime='2021-05-10' pubdate>
+      10 May, 2021
+    </time>
+  </i>
+</p>
+
+<content>
+  <h2 id="5-things-to-look-for-in-an-operating-system-for-schoolproductivity">5 things to look for in an operating system for school/productivity</h2>
+<ol>
+<li>
+<p>Reliability</p>
+</li>
+<li>
+<p>Performance</p>
+</li>
+<li>
+<p>Efficiency</p>
+</li>
+<li>
+<p>Compatibility</p>
+</li>
+<li>
+<p>Future proof</p>
+</li>
+</ol>
+<h2 id="arch-linux-pros-and-cons">Arch Linux pros and cons?</h2>
+<h4 id="pros">Pros:</h4>
+<ul>
+<li>
+<p>pacman/AUR</p>
+<ul>
+<li>If pacman doesn&rsquo;t have the package you are looking for, the AUR usually does. It&rsquo;s insanely complete. I personally have 1600 packages installed, and I only had to install 2 programs that weren&rsquo;t provided in the AUR. Additionally, both these tools are crazy fast.</li>
+</ul>
+</li>
+<li>
+<p>FOSS</p>
+<ul>
+<li>Arch Linux can be as FOSS compliant as you want it. It ships out of the box without any proprietary software and you can keep it that way if you wish.</li>
+</ul>
+</li>
+<li>
+<p>Privacy</p>
+<ul>
+<li>As opposed to most non-linux operating systems, Arch can be fully private and off the grid.</li>
+</ul>
+</li>
+<li>
+<p>Speed</p>
+<ul>
+<li>Arch is very resource friendly, which lends itself well to using a laptop or low power device for a learning context.</li>
+</ul>
+</li>
+<li>
+<p>Support</p>
+<ul>
+<li>The Arch community is rather helpful and you can usually find answers without much trouble on the first page of your search engine.</li>
+</ul>
+</li>
+<li>
+<p>Modularity</p>
+<ul>
+<li>In my opinion, the place where Arch really shines is in it&rsquo;s modularity. You decide each piece piece of software on the machine. This allows for virtually infinite customization. My dotfiles can be found <a href="https://github.com/Green-Robot-Dev-Studios/dots">here</a>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="cons">Cons:</h4>
+<ul>
+<li>
+<p>Unstable</p>
+<ul>
+<li>Arch is a rolling release distribution which means you need to be updating very frequently to take full advantage of all the new features and security patches. I personally update less often than the average Arch user (once a week). Sometimes updates bring instabilities or incompatibilities with other software. You need to be ready to debug and fix these issues should they arise. I estimate I spend an hour per month debugging issues related to updates. In my opinion, it&rsquo;s worth it.</li>
+</ul>
+</li>
+<li>
+<p>Graphics</p>
+<ul>
+<li>Graphics are mostly an issue for Nvidia users. The Nvidia driver is not open source and is filled with bugs and is relatively unstable. I sometimes get graphical issues in the web browser and electron applications. It doesn&rsquo;t get in the way of things, but is quite annoying.</li>
+</ul>
+</li>
+<li>
+<p>Sound</p>
+<ul>
+<li>The current options for sound on linux are sub par. Most people will have ALSA as a base to their sound infrastructure. However, ALSA has limited features and compatibility so pulseaudio or pipewire must be installed on top. There are a plethora of bugs and instabilities in pulseaudio. Pipewire was recently introduced as a drop in replacement, however it&rsquo;s not without it&rsquo;s own issues as well.</li>
+</ul>
+</li>
+<li>
+<p>Screenshare</p>
+<ul>
+<li>Due to the nature of X (I don&rsquo;t know about wayland), screensharing can be difficult for some programs this not a big deal breaker for me, but can be for some. However, the issue is getting better as more software are patching functionality for linux.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Arch can be used for productivity and school work. I use it as my daily driver operating system. I find the package manager superior to all other operating systems I&rsquo;ve tried, and for me, it&rsquo;s an indispensable tool. Additionally, the modularity and control over the software on my machine is valuable to me and empowering from a privacy and efficiency standpoint.</p>
+</li>
+</ul>
+
+</content>
+<p>
+  
+  <a href="https://nicholasficara.dev/blog/blog/arch-linux/">#Arch Linux</a>
+  
+  <a href="https://nicholasficara.dev/blog/blog/operating-systems/">#Operating Systems</a>
+  
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+    
+</body>
+
+</html>

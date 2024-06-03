@@ -1,0 +1,21 @@
+# Logic
+
+## 5 minute cram:
+
+A logic:
+- Syntax
+    - Defines the language of the logic.
+    - Defines the rules for constructing sentences in the language.
+- Semantics: Defines $\equality$ and $\vDash$ for the logic.
+    - $\vDash$ means "logically implies".
+    - $\equality$ means "is logically equivalent to".
+- Proof theory: Defines $\vdash$.
+    - $P_1, P_2, P_3 \vdash Q$ means we can prove $Q$ from $P_1, P_2, P_3$.
+
+## Soundness and Completeness
+
+- Soundness: If $P_1, P_2, P_3 \vdash Q$ then $P_1, P_2, P_3 \vDash Q$.
+    - In other words, if we can prove $Q$ from $P_1, P_2, P_3$ then $Q$ is true in all models of $P_1, P_2, P_3$. Meaning **we can't prove anything that is false**.
+- Completeness: If $P_1, P_2, P_3 \vDash Q$ then $P_1, P_2, P_3 \vdash Q$.
+    - In other words, if $Q$ is true in all models of $P_1, P_2, P_3$ then we can prove $Q$ from $P_1, P_2, P_3$. Meaning **we can prove anything that is true**.
+

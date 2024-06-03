@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hackathons on Nick&#39;s Blog</title>
+    <link>https://nicholasficara.dev/blog/blog/hackathons/</link>
+    <description>Recent content in Hackathons on Nick&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2021-Present, Nicholas Ficara</copyright>
+    <lastBuildDate>Thu, 17 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://nicholasficara.dev/blog/blog/hackathons/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Are Hackathons Really Worth It?</title>
+      <link>https://nicholasficara.dev/blog/are-hackathons-really-worth-it/</link>
+      <pubDate>Thu, 17 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicholasficara.dev/blog/are-hackathons-really-worth-it/</guid>
+      <description>Introduction I enjoy hackathons. They force us to complete a project and present it no matter what state it&amp;rsquo;s in. This is the main reason I participate. It forces me to just code and whatever I get done I must present. It contrasts my normal approach to projects, which is to polish to no end and eventually lose interest in the project.
+Online Hackathons In the past year, I&amp;rsquo;ve been participating in online hackathons.</description>
+    </item>
+    
+  </channel>
+</rss>
